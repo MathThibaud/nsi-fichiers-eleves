@@ -3,7 +3,7 @@
 Fichiers necessaires, dans le meme dossier que ce programme :
     prenoms_insee_extrait.csv     extrait du Fichier des prenoms de l'Insee
                                   (edition 2025, naissances 1950-2025, effectifs >= 100)
-    projet_prenoms_evenements.csv petite table d'evenements (partie VI)
+    projet_prenoms_evenements.csv petite table d'evenements (partie 6)
 
 Source : Insee, Fichier des prenoms, edition 2025, licence ouverte Etalab 2.0,
 https://www.insee.fr/fr/statistiques/8595130
@@ -19,7 +19,7 @@ FICHIER = "prenoms_insee_extrait.csv"
 EVENEMENTS = "projet_prenoms_evenements.csv"
 
 
-# ============================================ Partie II : importer, nettoyer
+# ============================================ Partie 2 : importer, nettoyer
 def charger(fichier, separateur):
     """Table (liste de dictionnaires) lue dans le fichier CSV ;
     toutes les valeurs sont des chaines."""
@@ -43,7 +43,7 @@ def nettoyer(table):
     ...
 
 
-# ============================================ Partie III : interroger
+# ============================================ Partie 3 : interroger
 def nombre_de(table, prenom, sexe, annee):
     """Nombre de naissances pour ce prenom, ce sexe, cette annee (0 si absent)."""
     ...
@@ -64,7 +64,7 @@ def top(table, annee, sexe, n):
     ...
 
 
-# ============================================ Partie IV : regrouper
+# ============================================ Partie 4 : regrouper
 def total_par_prenom(table, sexe, debut, fin):
     """Dictionnaire {prenom: total des naissances de debut a fin inclus}."""
     totaux = {}
@@ -89,7 +89,7 @@ def diversite(table, annee, sexe):
     ...
 
 
-# ============================================ Partie V : trier
+# ============================================ Partie 5 : trier
 def palmares(totaux, n):
     """Les n couples (prenom, total) du dictionnaire ayant les plus grands totaux."""
     ...
@@ -101,7 +101,7 @@ def classement(table, annee, sexe):
     ...
 
 
-# ============================================ Partie VI : croiser
+# ============================================ Partie 6 : croiser
 def jointure(gauche, droite, cle):
     """La jointure du cours (fournie)."""
     resultat = []
@@ -140,7 +140,7 @@ def avant_apres(fusion, prenom):
     ...
 
 
-# ============================================ Partie VII : tracer
+# ============================================ Partie 7 : tracer
 def tracer(table, prenoms, fichier_image):
     """prenoms : liste de couples (prenom, sexe). Trace une courbe par prenom."""
     import matplotlib.pyplot as plt
@@ -227,11 +227,11 @@ def test_partie6():
     assert avant_apres(fusion, "Thierry") == (15745, 25515, 1964)
 
 
-verifier("Partie II", test_partie2)
-verifier("Partie III", test_partie3)
-verifier("Partie IV", test_partie4)
-verifier("Partie V", test_partie5)
-verifier("Partie VI", test_partie6)
+verifier("Partie 2", test_partie2)
+verifier("Partie 3", test_partie3)
+verifier("Partie 4", test_partie4)
+verifier("Partie 5", test_partie5)
+verifier("Partie 6", test_partie6)
 
-# Partie VII : decommenter quand evolution est ecrite
+# Partie 7 : decommenter quand evolution est ecrite
 # tracer(propre(), [("Marie", "F"), ("Lea", "F"), ("Kevin", "G")], "courbes.png")
