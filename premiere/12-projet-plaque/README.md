@@ -13,6 +13,6 @@ Placer tous ces fichiers dans un même dossier de travail.
 | `chiffres_train.csv` | chiffres manuscrits (même fichier que le TP OCR) |
 | `lettres_train.csv` | lettres manuscrites (même fichier que le TP OCR) |
 
-Placer aussi dans ce dossier VOTRE fichier ocr.py complété lors du TP OCR (plaque.py l'importe).
+Placer aussi dans ce dossier VOTRE fichier ocr.py complété lors du TP OCR (plaque.py l'importe). Les fichiers chiffres_train.csv et lettres_train.csv viennent des bases MNIST et EMNIST (licence CC BY-SA 3.0, voir le dossier du TP OCR).
 
 Tout télécharger d'un coup : [archive premiere-12-projet-plaque.zip](../../zips/premiere-12-projet-plaque.zip).
