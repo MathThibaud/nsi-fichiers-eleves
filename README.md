@@ -2,7 +2,9 @@
 
 Ce dépôt contient les fichiers dont les élèves ont besoin pour les activités,
 TP et projets du manuel de NSI : programmes à compléter, données, images.
-Il ne contient aucun corrigé.
+Les dossiers des activités, TP et projets ne contiennent aucun corrigé. Seuls les
+corrigés en Python cités par le manuel (sujets d'épreuve pratique, problèmes de
+synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 
 ## Télécharger
 
@@ -40,6 +42,7 @@ Il ne contient aucun corrigé.
 - [Chapitre 5 — Diviser pour régner : TP — Le Tim sort, le tri de Python](terminale/05-tp-tim-sort/) — [archive .zip](zips/terminale-05-tp-tim-sort.zip)
 - [Chapitre 5 — Diviser pour régner : TP — Faire tourner une image](terminale/05-tp-rotation-image/) — [archive .zip](zips/terminale-05-tp-rotation-image.zip)
 - [Chapitre 6 — Bases de données et SQL : TP — La ligue de futsal des quartiers](terminale/06-tp-bdd-sql/) — [archive .zip](zips/terminale-06-tp-bdd-sql.zip)
+- [Chapitre 6 — Bases de données et SQL : Exercices — les trois bases SQL](terminale/06-exercices-bdd-sql/) — [archive .zip](zips/terminale-06-exercices-bdd-sql.zip)
 - [Chapitre 7 — Graphes : Projet — L'algorithme de Dijkstra](terminale/07-projet-dijkstra/) — [archive .zip](zips/terminale-07-projet-dijkstra.zip)
 - [Chapitre 8 — Programmation dynamique : TP — Le plus grand carré blanc](terminale/08-tp-carre-blanc/) — [archive .zip](zips/terminale-08-tp-carre-blanc.zip)
 - [Chapitre 9 — Systèmes sur puce et informatique embarquée : TP — Programmer un système embarqué](terminale/09-tp-soc/) — [archive .zip](zips/terminale-09-tp-soc.zip)
@@ -56,3 +59,17 @@ Il ne contient aucun corrigé.
 - [Épreuve pratique — sujet d'entraînement : Sujet n° 30 — Messages secrets](terminale/pratique-30-messages-secrets/) — [archive .zip](zips/terminale-pratique-30-messages-secrets.zip)
 - [Épreuve pratique — sujet d'entraînement : Sujet n° 31 — Recherche d'un motif](terminale/pratique-31-recherche-motif/) — [archive .zip](zips/terminale-pratique-31-recherche-motif.zip)
 - [Épreuve pratique — sujet d'entraînement : Sujet n° 32 — Le grand escalier](terminale/pratique-32-grand-escalier/) — [archive .zip](zips/terminale-pratique-32-grand-escalier.zip)
+
+### Corrigés (dossier `corriges/`)
+
+- [premiere/synthese](corriges/premiere/synthese/corrige_synthese_premiere.py) : `corrige_synthese_premiere.py`
+- [terminale/synthese](corriges/terminale/synthese/corrige_synthese_terminale.py) : `corrige_synthese_terminale.py`
+- [terminale/pratique-24](corriges/terminale/pratique-24/corrige_sujet_24.py) : `corrige_sujet_24.py`
+- [terminale/pratique-25](corriges/terminale/pratique-25/corrige_sujet_25.py) : `corrige_sujet_25.py`
+- [terminale/pratique-26](corriges/terminale/pratique-26/corrige_sujet_26.py) : `corrige_sujet_26.py`
+- [terminale/pratique-27](corriges/terminale/pratique-27/corrige_sujet_27.py) : `corrige_sujet_27.py`
+- [terminale/pratique-28](corriges/terminale/pratique-28/corrige_sujet_28.py) : `corrige_sujet_28.py`
+- [terminale/pratique-29](corriges/terminale/pratique-29/corrige_sujet_29.py) : `corrige_sujet_29.py`
+- [terminale/pratique-30](corriges/terminale/pratique-30/corrige_sujet_30.py) : `corrige_sujet_30.py`
+- [terminale/pratique-31](corriges/terminale/pratique-31/corrige_sujet_31.py) : `corrige_sujet_31.py`
+- [terminale/pratique-32](corriges/terminale/pratique-32/corrige_sujet_32.py) : `corrige_sujet_32.py`
