@@ -2,6 +2,27 @@
 
 Première NSI — Chapitre 6 — Les algorithmes de tri.
 
+## Ce qu'il faut faire
+
+Énoncé complet (en anglais) : <https://adventofcode.com/2024/day/1>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
+
+**Contexte.** Les historiens du pôle Nord cherchent leur chef, introuvable. Dans son bureau, ils ont dressé deux listes de lieux à visiter, chaque lieu étant désigné par un numéro. Mais les deux listes ne concordent pas, et il faut mesurer à quel point elles diffèrent. Le fichier présente les deux listes côte à côte.
+
+**Ce qu'il faut faire.**
+- Chaque ligne contient deux entiers séparés par plusieurs espaces : le premier appartient à la liste de gauche, le second à la liste de droite.
+- On ne compare pas les nombres d'une même ligne : on trie chaque liste, puis on associe le plus petit nombre de gauche au plus petit de droite, le deuxième au deuxième, etc.
+- L'écart d'une paire est la distance entre ses deux nombres, c'est-à-dire la valeur absolue de leur différence.
+- La réponse est la somme des écarts de toutes les paires.
+
+<details>
+<summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
+
+Les historiens remarquent que beaucoup de numéros se retrouvent dans les deux listes : on mesure maintenant leur ressemblance autrement. Pour chaque nombre de la liste de gauche, on compte combien de fois il apparaît dans la liste de droite, et on multiplie le nombre par ce compte. La réponse est la somme de ces produits ; un nombre présent deux fois à gauche est compté deux fois.
+
+</details>
+
+## Fichiers
+
 Placer tous ces fichiers dans un même dossier de travail.
 
 | Fichier | Rôle |
