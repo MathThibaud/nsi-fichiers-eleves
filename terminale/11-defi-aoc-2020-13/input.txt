@@ -1,0 +1,2 @@
+1007831
+19,29,x,23,x,x,x,x,x,x,x,x,x,x,x,x,x,x,739,x,x,661,x,x,x,x,x,x,x,x,x,x,x,x,41,x,x,x,x,x,x,x,x,x,x,43,x,x,x,x,x,x,x,x,x,13,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,17,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x
