@@ -26,11 +26,9 @@ def cases_voisines(grille, case):
     ligne, colonne = case
     candidates = [(ligne - 1, colonne), (ligne + 1, colonne),
                   (ligne, colonne - 1), (ligne, colonne + 1)]
-    voisines = []
-    for (l, c) in candidates:
-        if 0 <= l < len(grille) and 0 <= c < len(grille[l]) and grille[l][c] != "#":
-            voisines.append((l, c))
-    return voisines
+    return [(l, c) for (l, c) in candidates
+            if 0 <= l < len(grille) and 0 <= c < len(grille[l])
+            and grille[l][c] != "#"]
 
 
 def construire_graphe(grille):

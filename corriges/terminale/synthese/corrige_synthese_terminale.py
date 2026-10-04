@@ -126,6 +126,14 @@ def renverser(lst):
     return renverser_dans(lst, None)
 
 
+def renverser_iteratif(lst):
+    resultat = None
+    while lst is not None:
+        resultat = Cellule(lst.valeur, resultat)
+        lst = lst.suivante
+    return resultat
+
+
 def en_liste(lst):
     if lst is None:
         return []
@@ -251,6 +259,7 @@ assert longueur(lst) == 3 and longueur(None) == 0
 assert somme(lst) == 8 and contient(lst, 4) and not contient(lst, 5)
 assert en_liste(renverser(lst)) == [4, 1, 3] and en_liste(lst) == [3, 1, 4]
 assert renverser(None) is None
+assert en_liste(renverser_iteratif(lst)) == [4, 1, 3] and renverser_iteratif(None) is None
 
 assert tri_abr([5, 3, 8, 1, 4]) == [1, 3, 4, 5, 8]
 assert tri_abr([3, 1, 3]) == [1, 3]

@@ -52,11 +52,11 @@ def comparaisons_naive(motif, texte):
     nb = 0
     for i in range(n - m + 1):
         j = 0
-        while j < m:
-            nb = nb + 1
-            if texte[i + j] != motif[j]:
-                break
+        while j < m and texte[i + j] == motif[j]:
+            nb = nb + 1                # comparaison reussie
             j = j + 1
+        if j < m:
+            nb = nb + 1                # la comparaison qui a echoue
     return nb
 
 
