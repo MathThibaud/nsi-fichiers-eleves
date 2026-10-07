@@ -64,7 +64,7 @@ def copie(image):
     """Copie d'une image (tableau 2D)."""
     resultat = []
     for ligne in image:
-        resultat.append(list(ligne))
+        resultat.append([x for x in ligne])
     return resultat
 
 

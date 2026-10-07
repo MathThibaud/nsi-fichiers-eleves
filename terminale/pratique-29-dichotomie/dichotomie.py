@@ -62,7 +62,7 @@ def recherche_rec(tab, x, debut, fin):
 def comparer(n):
     """Cherche une valeur absente dans le tableau trié des n premiers nombres
     pairs et affiche le nombre de comparaisons de chaque méthode"""
-    tab = list(range(0, 2 * n, 2))
+    tab = [i for i in range(0, 2 * n, 2)]
     print("n =", n)
     print("  séquentielle :", comparaisons_sequentielle(tab, 2 * n + 1))
     print("  dichotomique :", comparaisons_dichotomique(tab, 2 * n + 1))
@@ -79,7 +79,7 @@ def test_recherche():
 
 def test_comparaisons():
     assert comparaisons_dichotomique([10, 20, 30], 20) == 1
-    assert comparaisons_dichotomique(list(range(1000)), -1) == 9
+    assert comparaisons_dichotomique([i for i in range(1000)], -1) == 9
 
 
 def test_premiere_occurrence():

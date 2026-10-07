@@ -113,7 +113,7 @@ def test_tourniquet_q_2():
 
 
 def test_commutations():
-    return commutations(list("AAB..BCA")) == 3
+    return commutations([c for c in "AAB..BCA"]) == 3
 
 
 def tester():

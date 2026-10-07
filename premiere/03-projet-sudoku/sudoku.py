@@ -97,7 +97,7 @@ def grille_patron():
 
 def renommer_chiffres(grille):
     """Remplace chaque chiffre selon une permutation tiree au hasard."""
-    nouveaux = list(range(1, 10))
+    nouveaux = [i for i in range(1, 10)]
     random.shuffle(nouveaux)          # une permutation au hasard
     # A COMPLETER : construire le dictionnaire {1:nouveaux[0], ...}
     # puis renvoyer la grille avec chaque valeur remplacee

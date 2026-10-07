@@ -144,7 +144,7 @@ def avant_apres(fusion, prenom):
 def tracer(table, prenoms, fichier_image):
     """prenoms : liste de couples (prenom, sexe). Trace une courbe par prenom."""
     import matplotlib.pyplot as plt
-    annees = list(range(1950, 2026))
+    annees = [i for i in range(1950, 2026)]
     for prenom, sexe in prenoms:
         evo = evolution(table, prenom, sexe)
         nombres = ...          # une valeur par annee (0 si absente)
