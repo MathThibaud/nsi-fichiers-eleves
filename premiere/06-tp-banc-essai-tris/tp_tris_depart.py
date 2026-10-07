@@ -45,7 +45,7 @@ def inversee(n):
 
 def presque_triee(n, k):
     """Liste triee de n elements dans laquelle on a echange k paires de voisins."""
-    t = list(range(n))
+    t = [i for i in range(n)]
     for m in range(k):
         i = random.randint(0, n - 2)
         temp = t[i]
@@ -59,10 +59,10 @@ def tester_partie_A():
             for fabrique in [aleatoire, triee, inversee]:
                 t = fabrique(n)
                 ref = sorted(t)
-                a = list(t)
+                a = [x for x in t]
                 tri_selection_compte(a)
                 assert a == ref
-                b = list(t)
+                b = [x for x in t]
                 tri_insertion_compte(b)
                 assert b == ref
         assert tri_selection_compte([5, 3, 8, 1, 9, 2]) == (15, 4)
@@ -83,8 +83,8 @@ def banc_essai(tailles):
     for n in tailles:
         for nom, fabrique in [("aléatoire", aleatoire), ("triée", triee), ("inversée", inversee)]:
             t = fabrique(n)
-            s = tri_selection_compte(list(t))
-            i = tri_insertion_compte(list(t))
+            s = tri_selection_compte([x for x in t])
+            i = tri_insertion_compte([x for x in t])
             print(n, "|", nom, "|", s, "|", i)
 
 # ------------------------------------------------------------------

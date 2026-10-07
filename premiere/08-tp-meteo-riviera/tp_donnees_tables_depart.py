@@ -108,7 +108,7 @@ def en_texte(nombre):
 def exporter(table, fichier, separateur):
     """Ecrit la table (liste de dictionnaires) dans un fichier CSV."""
     with open(fichier, "w", encoding="utf-8", newline="") as f:
-        ecrivain = csv.DictWriter(f, fieldnames=list(table[0].keys()),
+        ecrivain = csv.DictWriter(f, fieldnames=[cle for cle in table[0]],
                                   delimiter=separateur)
         ecrivain.writeheader()
         ...

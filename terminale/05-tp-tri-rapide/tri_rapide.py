@@ -103,7 +103,7 @@ def test_tri_rapide():
         a = []
         for k in range(random.randint(0, 40)):
             a.append(random.randint(-50, 50))
-        if trier(list(a)) != sorted(a):
+        if trier([x for x in a]) != sorted(a):
             return False
     return True
 
@@ -113,7 +113,7 @@ def test_tri_fusion():
         a = []
         for k in range(random.randint(0, 40)):
             a.append(random.randint(-50, 50))
-        b = list(a)
+        b = [x for x in a]
         tri_fusion(b)
         if b != sorted(a):
             return False

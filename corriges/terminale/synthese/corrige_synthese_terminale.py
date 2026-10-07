@@ -268,7 +268,7 @@ for x in range(1, 101):
     a = insere(a, x)
 print("hauteur trié 100 :", hauteur(a))
 random.seed(1)
-t = list(range(1, 101)); random.shuffle(t)
+t = [i for i in range(1, 101)]; random.shuffle(t)
 a = None
 for x in t:
     a = insere(a, x)

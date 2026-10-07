@@ -60,7 +60,7 @@ def classement():
     requete = """ ... """          # les rencontres DEJA jouees
     for (dom, ext, bd, be) in connexion.execute(requete):
         ...                        # mettre a jour stats[dom] et stats[ext]
-    lignes = list(stats.values())
+    lignes = [v for v in stats.values()]
     lignes.sort(key=critere_de_tri)      # tri fourni
     return lignes
 

@@ -138,7 +138,7 @@ def tournee_optimale(depart, villes):
     autres = [v for v in villes if v != depart]
     meilleure = None
     for ordre in itertools.permutations(autres):
-        tournee = [depart] + list(ordre)
+        tournee = [depart] + [v for v in ordre]
         ...
     return meilleure
 

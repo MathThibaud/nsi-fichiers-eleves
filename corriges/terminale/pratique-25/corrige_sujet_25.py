@@ -66,8 +66,8 @@ def experience(n):
     """Construit deux ABR contenant les entiers de 1 à n : l'un en les insérant
     dans l'ordre croissant, l'autre dans un ordre aléatoire, et affiche la
     hauteur de chacun"""
-    croissant = construire_abr(list(range(1, n + 1)))
-    melange = list(range(1, n + 1))
+    croissant = construire_abr([i for i in range(1, n + 1)])
+    melange = [i for i in range(1, n + 1)]
     random.shuffle(melange)
     aleatoire = construire_abr(melange)
     print("insertion dans l'ordre croissant :", hauteur(croissant))

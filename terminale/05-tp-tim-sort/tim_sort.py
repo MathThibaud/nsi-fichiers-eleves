@@ -115,7 +115,7 @@ def test_tim_sort():
         return False
     for essai in range(200):            # petits blocs : on force les fusions
         a = tableau_hasard(200)
-        if tim_sort(list(a), 4) != sorted(a):
+        if tim_sort([x for x in a], 4) != sorted(a):
             return False
     return True
 
