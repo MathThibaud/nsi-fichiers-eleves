@@ -63,6 +63,7 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 - [Chapitre 2 — Programmation orientée objet et paradigmes : Projet — La Bataille, en objets](terminale/02-projet-poo/) — [archive .zip](zips/terminale-02-projet-poo.zip)
 - [Chapitre 3 — Structures linéaires : piles, files, listes chaînées : TP — Piles et files au travail](terminale/03-tp-structures-lineaires/) — [archive .zip](zips/terminale-03-tp-structures-lineaires.zip)
 - [Chapitre 4 — Arbres : TP — Un arbre binaire de recherche, de A à Z](terminale/04-tp-arbres/) — [archive .zip](zips/terminale-04-tp-arbres.zip)
+- [Chapitre 4 — Arbres : TP — Le morpion imbattable](terminale/04-tp-morpion-minimax/) — [archive .zip](zips/terminale-04-tp-morpion-minimax.zip)
 - [Chapitre 5 — Diviser pour régner : TP — Tri rapide (Quicksort)](terminale/05-tp-tri-rapide/) — [archive .zip](zips/terminale-05-tp-tri-rapide.zip)
 - [Chapitre 5 — Diviser pour régner : TP — Le Tim sort, le tri de Python](terminale/05-tp-tim-sort/) — [archive .zip](zips/terminale-05-tp-tim-sort.zip)
 - [Chapitre 5 — Diviser pour régner : TP — Faire tourner une image](terminale/05-tp-rotation-image/) — [archive .zip](zips/terminale-05-tp-rotation-image.zip)
