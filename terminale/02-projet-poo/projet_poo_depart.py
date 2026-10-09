@@ -66,7 +66,7 @@ class Joueur:
         ...
 
     def nb_cartes_de(self, valeur):
-        """Nombre de cartes de cette valeur dans la main (a ecrire avec filter)."""
+        """Nombre de cartes de cette valeur dans la main (en une ligne, avec une liste en comprehension)."""
         ...
 
     def jouer_carte(self):
