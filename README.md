@@ -1,7 +1,7 @@
-# Fichiers à télécharger — NSI (Première, Terminale)
+# Fichiers à télécharger — NSI (Première, Terminale) et SNT (Seconde)
 
 Ce dépôt contient les fichiers dont les élèves ont besoin pour les activités,
-TP et projets du manuel de NSI : programmes à compléter, données, images.
+TP et projets des manuels de NSI et de SNT : programmes à compléter, données, images.
 Les dossiers des activités, TP et projets ne contiennent aucun corrigé. Seuls les
 corrigés en Python cités par le manuel (sujets d'épreuve pratique, problèmes de
 synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
@@ -23,7 +23,7 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 
 ## Contenu
 
-### Première
+### Première NSI
 
 - [Complément — Dessiner avec la tortue : Projet — La tortue écrivain](premiere/01b-projet-tortue-ecrivain/) — [archive .zip](zips/premiere-01b-projet-tortue-ecrivain.zip)
 - [Chapitre 2 — Le binaire et l'écriture des nombres : TP — Programmer l'arithmétique binaire](premiere/02-tp-arithmetique-binaire/) — [archive .zip](zips/premiere-02-tp-arithmetique-binaire.zip)
@@ -64,7 +64,7 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 - [Chapitre 12 — Les k plus proches voisins : Défi Advent of Code — Hydrothermal Venture (2021, jour 5)](premiere/12-defi-aoc-2021-05/) — [archive .zip](zips/premiere-12-defi-aoc-2021-05.zip)
 - [Chapitre 12 — Les k plus proches voisins : Défi Advent of Code — Rope Bridge (2022, jour 9)](premiere/12-defi-aoc-2022-09/) — [archive .zip](zips/premiere-12-defi-aoc-2022-09.zip)
 
-### Terminale
+### Terminale NSI
 
 - [Chapitre 1 — Récursivité : Projet — Sudoku : résoudre par retour sur trace](terminale/01-projet-sudoku/) — [archive .zip](zips/terminale-01-projet-sudoku.zip)
 - [Chapitre 2 — Programmation orientée objet et paradigmes : Projet — La Bataille, en objets](terminale/02-projet-poo/) — [archive .zip](zips/terminale-02-projet-poo.zip)
@@ -117,6 +117,13 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 - [Chapitre 13 — Calculabilité et décidabilité : Défi Advent of Code — Handheld Halting (2020, jour 8)](terminale/13-defi-aoc-2020-08/) — [archive .zip](zips/terminale-13-defi-aoc-2020-08.zip)
 - [Chapitre 13 — Calculabilité et décidabilité : Défi Advent of Code — Conway Cubes (2020, jour 17)](terminale/13-defi-aoc-2020-17/) — [archive .zip](zips/terminale-13-defi-aoc-2020-17.zip)
 - [Chapitre 14 — Systèmes sur puce et informatique embarquée : Défi Advent of Code — Docking Data (2020, jour 14)](terminale/14-defi-aoc-2020-14/) — [archive .zip](zips/terminale-14-defi-aoc-2020-14.zip)
+
+### Seconde SNT
+
+- [Chapitre 3 — La photographie numérique : Image « The Blue Marble » pour les programmes Python](seconde/03-photo-image-terre/) — [archive .zip](zips/seconde-03-photo-image-terre.zip)
+- [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 1 : notes, fréquences et graphiques](seconde/05-tp-tableur-1/) — [archive .zip](zips/seconde-05-tp-tableur-1.zip)
+- [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 2 : suites de nombres et conjecture](seconde/05-tp-tableur-2/) — [archive .zip](zips/seconde-05-tp-tableur-2.zip)
+- [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 3 : représenter et résumer une série](seconde/05-tp-tableur-3/) — [archive .zip](zips/seconde-05-tp-tableur-3.zip)
 
 ### Corrigés (dossier `corriges/`)
 
