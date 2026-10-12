@@ -1,6 +1,6 @@
 # Défi Advent of Code — Shuttle Search (2020, jour 13)
 
-Terminale NSI — Chapitre 9 — Réseaux.
+Terminale NSI — Chapitre 10 — Cryptographie.
 
 ## Ce qu'il faut faire
 
@@ -33,4 +33,4 @@ Placer tous ces fichiers dans un même dossier de travail.
 
 Données fabriquées pour le manuel, au même format que celles du site adventofcode.com (l'énoncé se lit sur ce site, il n'est pas reproduit ici) ; les réponses diffèrent donc de celles que le site vous demanderait. Aucun corrigé n'est fourni : verifier.py dit seulement si une réponse est juste. Advent of Code est créé par Eric Wastl.
 
-Tout télécharger d'un coup : [archive terminale-09-defi-aoc-2020-13.zip](../../zips/terminale-09-defi-aoc-2020-13.zip).
+Tout télécharger d'un coup : [archive terminale-10-defi-aoc-2020-13.zip](../../zips/terminale-10-defi-aoc-2020-13.zip).

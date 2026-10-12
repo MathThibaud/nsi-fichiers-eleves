@@ -64,9 +64,12 @@ def dijkstra(graphe, depart):
     graphe : dict sommet -> liste de (voisin, poids), poids >= 0.
     Renvoie (distance, precedent) : deux dictionnaires.
     """
-    distance = {s: float('inf') for s in graphe}
+    distance = {}
+    precedent = {}
+    for s in graphe:
+        distance[s] = float('inf')               # +infini : pas encore atteint
+        precedent[s] = None
     distance[depart] = ...                       # (a)
-    precedent = {s: None for s in graphe}
     a_traiter = [s for s in graphe]          # sommets pas encore fixes
     while a_traiter != []:
         # 1) choisir le sommet non traite de plus petite distance
