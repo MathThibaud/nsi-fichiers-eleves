@@ -124,12 +124,12 @@ def afficher_barres(t, i_actif):
     # A COMPLETER
     ...
 
-def tri_insertion_visu(t, pause=0.5):
+def tri_insertion_visu(t, pause):
     """Tri par insertion qui affiche le tableau apres chaque insertion."""
     # A COMPLETER
     ...
 
-def tri_selection_visu(t, pause=0.5):
+def tri_selection_visu(t, pause):
     """Tri par selection qui affiche le tableau apres chaque etape."""
     # A COMPLETER
     ...
@@ -167,4 +167,4 @@ print(aleatoire(10))
 # ts, ti, tp = course(tailles)
 # print(ts, ti, tp)
 # tracer(tailles, ts, ti, tp)
-# tri_insertion_visu([5, 3, 8, 1, 9, 2])
+# tri_insertion_visu([5, 3, 8, 1, 9, 2], 0.5)

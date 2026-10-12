@@ -149,13 +149,14 @@ class Noeud:
         self.droite = droite
 
 
-def insere(a, x):
+def inserer(a, x):
+    """Insere x dans l'ABR a et renvoie l'arbre obtenu (fonction du cours)."""
     if a is None:
         return Noeud(x)
     if x < a.valeur:
-        a.gauche = insere(a.gauche, x)
-    elif x > a.valeur:
-        a.droite = insere(a.droite, x)
+        a.gauche = inserer(a.gauche, x)
+    else:
+        a.droite = inserer(a.droite, x)
     return a
 
 
@@ -169,7 +170,7 @@ def infixe_dans(a, resultat):
 def tri_abr(tab):
     a = None
     for x in tab:
-        a = insere(a, x)
+        a = inserer(a, x)
     resultat = []
     infixe_dans(a, resultat)
     return resultat
@@ -181,13 +182,14 @@ def hauteur(a):
     return 1 + max(hauteur(a.gauche), hauteur(a.droite))
 
 
-def insere_doublons(a, x):
+def inserer_sans_doublon(a, x):
+    """Variante : une valeur deja presente n'est pas ajoutee."""
     if a is None:
         return Noeud(x)
     if x < a.valeur:
-        a.gauche = insere_doublons(a.gauche, x)
-    else:
-        a.droite = insere_doublons(a.droite, x)
+        a.gauche = inserer_sans_doublon(a.gauche, x)
+    elif x > a.valeur:
+        a.droite = inserer_sans_doublon(a.droite, x)
     return a
 
 
@@ -263,21 +265,21 @@ assert renverser(None) is None
 assert en_liste(renverser_iteratif(lst)) == [4, 1, 3] and renverser_iteratif(None) is None
 
 assert tri_abr([5, 3, 8, 1, 4]) == [1, 3, 4, 5, 8]
-assert tri_abr([3, 1, 3]) == [1, 3]
+assert tri_abr([3, 1, 3]) == [1, 3, 3]
 a = None
 for x in range(1, 101):
-    a = insere(a, x)
+    a = inserer(a, x)
 print("hauteur trié 100 :", hauteur(a))
 random.seed(1)
 t = [i for i in range(1, 101)]; random.shuffle(t)
 a = None
 for x in t:
-    a = insere(a, x)
+    a = inserer(a, x)
 print("hauteur mélangé 100 :", hauteur(a))
 b = None
 for x in [3, 1, 3]:
-    b = insere_doublons(b, x)
-r = []; infixe_dans(b, r); assert r == [1, 3, 3]
+    b = inserer_sans_doublon(b, x)
+r = []; infixe_dans(b, r); assert r == [1, 3]
 
 arbre = Noeud(1, Noeud(2, Noeud(4), Noeud(5, Noeud(7))), Noeud(3, None, Noeud(6, Noeud(8), Noeud(9))))
 print(noeuds_par_niveau(arbre), largeur_max(arbre))

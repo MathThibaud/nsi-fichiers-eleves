@@ -117,10 +117,17 @@ def test_nb_buts():
 def test_classement():
     c = classement()
     assert len(c) == 6
-    assert sum(s["bp"] for s in c) == sum(s["bc"] for s in c)
-    assert all(s["pts"] == 3 * s["G"] + s["N"] for s in c)
-    assert all(s["J"] == s["G"] + s["N"] + s["P"] for s in c)
-    assert sum(s["J"] for s in c) > 0
+    total_bp = 0
+    total_bc = 0
+    total_j = 0
+    for s in c:
+        assert s["pts"] == 3 * s["G"] + s["N"]
+        assert s["J"] == s["G"] + s["N"] + s["P"]
+        total_bp += s["bp"]
+        total_bc += s["bc"]
+        total_j += s["J"]
+    assert total_bp == total_bc
+    assert total_j > 0
 
 
 def tester():
