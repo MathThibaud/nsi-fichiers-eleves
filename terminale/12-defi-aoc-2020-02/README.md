@@ -1,6 +1,6 @@
 # Défi Advent of Code — Password Philosophy (2020, jour 2)
 
-Terminale NSI — Chapitre 1 — Récursivité.
+Terminale NSI — Chapitre 12 — Recherche textuelle.
 
 ## Ce qu'il faut faire
 
@@ -33,4 +33,4 @@ Placer tous ces fichiers dans un même dossier de travail.
 
 Données fabriquées pour le manuel, au même format que celles du site adventofcode.com (l'énoncé se lit sur ce site, il n'est pas reproduit ici) ; les réponses diffèrent donc de celles que le site vous demanderait. Aucun corrigé n'est fourni : verifier.py dit seulement si une réponse est juste. Advent of Code est créé par Eric Wastl.
 
-Tout télécharger d'un coup : [archive terminale-01-defi-aoc-2020-02.zip](../../zips/terminale-01-defi-aoc-2020-02.zip).
+Tout télécharger d'un coup : [archive terminale-12-defi-aoc-2020-02.zip](../../zips/terminale-12-defi-aoc-2020-02.zip).
