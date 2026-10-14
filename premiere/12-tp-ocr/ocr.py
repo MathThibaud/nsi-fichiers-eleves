@@ -64,7 +64,10 @@ def vote(classes):
     """Classe la plus frequente dans la liste."""
     compte = {}
     for c in classes:
-        compte[c] = ...      # (d) A COMPLETER : ajouter 1 au compteur de c
+        if c in compte:
+            ...              # (d) A COMPLETER : ajouter 1 au compteur de c
+        else:
+            compte[c] = 1    # premiere voix pour c
     meilleure = None
     for c in compte:
         if meilleure is None or compte[c] > compte[meilleure]:
@@ -137,6 +140,7 @@ def test_k_plus_proches():
 def test_vote():
     assert vote(["A", "B", "A"]) == "A"
     assert vote(["B", "B", "A"]) == "B"
+    assert vote(["A", "B", "B"]) == "B"
 
 
 def test_classer():

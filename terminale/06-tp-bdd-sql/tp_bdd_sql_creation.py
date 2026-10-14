@@ -165,7 +165,8 @@ def creer_base(nom_fichier=NOM_BASE):
         if bd is not None:        # rencontre deja jouee
             buts_match = tirer_buts(idr, dom, bd, hasard) + tirer_buts(idr, ext, be, hasard)
             buts_match.sort(key=minute_du_but)     # dans l'ordre des minutes
-            buts.extend(buts_match)
+            for but in buts_match:
+                buts.append(but)
     connexion.executemany(
         "INSERT INTO but (id_rencontre, id_joueur, minute) VALUES (?, ?, ?)", buts)
 

@@ -3,7 +3,6 @@
 # puis relancer le fichier : les tests de la fin indiquent ce qui fonctionne.
 
 import random
-import math
 import sys
 
 sys.setrecursionlimit(20000)   # hauteur() est recursive : utile pour les arbres tres hauts
@@ -138,11 +137,16 @@ class Index:
         ...
 
 
+ACCENTUEES = "àâäçéèêëîïôöùûüÿœæ"
+
+
 def mots_de(ligne):
     """Fournie. Decoupe une ligne en mots en minuscules, sans ponctuation."""
     propre = ""
-    for c in ligne.lower():
-        if c.isalpha() or c == "-":
+    for c in ligne:
+        if "A" <= c <= "Z":                    # majuscule -> minuscule
+            c = chr(ord(c) - ord("A") + ord("a"))
+        if "a" <= c <= "z" or c in ACCENTUEES or c == "-":
             propre = propre + c
         else:
             propre = propre + " "

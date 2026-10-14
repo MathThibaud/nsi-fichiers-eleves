@@ -82,8 +82,8 @@ def tester_partie_B():
 
 def bulletin(dates, tmin, tmax, pluie):
     print("=== Bulletin climatique 2025 ===")
-    print("Moyenne des maximales :", round(moyenne(tmax), 1), "°C")
-    print("Cumul de pluie        :", round(somme(pluie)), "mm")
+    print(f"Moyenne des maximales : {moyenne(tmax):.1f} °C")
+    print(f"Cumul de pluie        : {somme(pluie):.0f} mm")
     # A COMPLETER : jours de pluie, jours de chaleur, nuits tropicales,
     # nuit la plus froide (date), plus grand ecart (date),
     # premier jour a 30 °C, moyennes mensuelles, mois le plus chaud

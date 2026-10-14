@@ -81,11 +81,11 @@ def gantt(chrono, procs):
 
 # ---------- Tests ----------
 def test_fcfs():
-    return "".join(fcfs(JEU_COURS)) == "AAAABBBCDD"
+    return fcfs(JEU_COURS) == [c for c in "AAAABBBCDD"]
 
 
 def test_fcfs_trou():
-    return "".join(fcfs([("X", 2, 1)])) == "..X"
+    return fcfs([("X", 2, 1)]) == [c for c in "..X"]
 
 
 def test_gantt_ligne():
@@ -101,15 +101,15 @@ def test_moyennes():
 
 
 def test_sjf():
-    return "".join(sjf(JEU_COURS)) == "AAAACDDBBB"
+    return sjf(JEU_COURS) == [c for c in "AAAACDDBBB"]
 
 
 def test_tourniquet_q_1():
-    return "".join(tourniquet(JEU_COURS, 1)) == "ABACBDABDA"
+    return tourniquet(JEU_COURS, 1) == [c for c in "ABACBDABDA"]
 
 
 def test_tourniquet_q_2():
-    return "".join(tourniquet(JEU_COURS, 2)) == "AABBCAADDB"
+    return tourniquet(JEU_COURS, 2) == [c for c in "AABBCAADDB"]
 
 
 def test_commutations():
@@ -136,7 +136,7 @@ def tester():
                 resultat = "ECHEC"
         except Exception as erreur:
             resultat = "ERREUR (" + type(erreur).__name__ + ")"
-        print(nom.ljust(16), resultat)
+        print(nom, ":", resultat)
 
 
 if __name__ == "__main__":

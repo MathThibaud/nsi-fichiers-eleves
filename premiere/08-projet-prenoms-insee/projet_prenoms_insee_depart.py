@@ -32,6 +32,20 @@ def est_valide(ligne):
     ...
 
 
+def en_minuscule(car):
+    """Minuscule d'une lettre majuscule, accentuee ou non (fournie) :
+    dans la table Unicode, elle est rangee 32 places plus loin."""
+    if "A" <= car <= "Z" or "À" <= car <= "Ü":
+        return chr(ord(car) + 32)      # majuscule -> minuscule
+    return car                         # pas une majuscule : inchange
+
+
+def prenom_lisible(prenom):
+    """'JEAN-PIERRE' -> 'Jean-Pierre' : majuscule en debut de mot
+    (premier caractere ou apres un tiret), minuscules ailleurs."""
+    ...
+
+
 def convertir(ligne):
     """Nouvelle fiche : sexe 'G' ou 'F', prenom ecrit 'Leo' et non 'LEO',
     annee, nombre et rang convertis en entiers."""
@@ -85,7 +99,8 @@ def plus_donne_par_decennie(table, sexe):
 
 def diversite(table, annee, sexe):
     """Triplet (nombre de prenoms, total des naissances,
-    part du top 10 en pourcentage arrondie au dixieme)."""
+    part du top 10 en pourcentage, valeur exacte : on l'affichera au
+    dixieme avec f"{part:.1f}")."""
     ...
 
 
@@ -108,7 +123,7 @@ def jointure(gauche, droite, cle):
     for lg in gauche:
         for ld in droite:
             if lg[cle] == ld[cle]:
-                fusion = dict(lg)
+                fusion = {c: lg[c] for c in lg}
                 for c in ld:
                     fusion[c] = ld[c]
                 resultat.append(fusion)
@@ -181,6 +196,7 @@ def test_partie2():
                        "valeur": "905", "rang": ""}) == False
     assert est_valide({"sexe": "1", "prenom": "RARES", "periode": "2025",
                        "valeur": "15", "rang": "2053"}) == True
+    assert prenom_lisible("JEAN-PIERRE") == "Jean-Pierre"
     assert convertir(brut[2]) == {"sexe": "G", "prenom": "Léo", "annee": 2025,
                                   "nombre": 3420, "rang": 3}
     table = nettoyer(brut)
@@ -202,7 +218,8 @@ def test_partie4():
     assert total_par_prenom(table, "F", 2020, 2025)["Louise"] == 20370
     assert champion({"a": 3, "b": 7, "c": 5}) == ("b", 7)
     assert plus_donne_par_decennie(table, "G")[1960] == ("Philippe", 229580)
-    assert diversite(table, 2025, "F") == (493, 198715, 12.5)
+    n, total, part = diversite(table, 2025, "F")
+    assert n == 493 and total == 198715 and f"{part:.1f}" == "12.5"
 
 
 def test_partie5():

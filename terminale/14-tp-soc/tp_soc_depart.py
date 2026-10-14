@@ -170,7 +170,7 @@ def tester():
                 resultat = "ECHEC"
         except Exception as erreur:
             resultat = "ERREUR (" + type(erreur).__name__ + ")"
-        print(nom.ljust(18), resultat)
+        print(f"{nom:18} {resultat}")
 
 
 if __name__ == "__main__":

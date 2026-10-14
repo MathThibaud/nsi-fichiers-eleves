@@ -77,7 +77,7 @@ def dijkstra(graphe, depart):
         for s in a_traiter:
             if distance[s] < distance[u]:
                 u = ...                          # (b)
-        a_traiter.remove(u)
+        a_traiter = [s for s in a_traiter if s != u]   # on retire u
         # 2) relacher les aretes issues de u
         for (v, poids) in graphe[u]:
             if distance[u] + poids < ... :       # (c)
@@ -99,6 +99,14 @@ def chemin(precedent, depart, arrivee):
 #  La matrice M est carree : M[i][j] = poids de l'arete i--j, et 0 s'il
 #  n'y a pas d'arete. Les sommets sont donc des INDICES (0, 1, 2, ...).
 
+def indice(sommets, x):
+    """Renvoie la position de x dans la liste sommets (None s'il n'y est pas). Fournie."""
+    for i in range(len(sommets)):
+        if sommets[i] == x:
+            return i
+    return None
+
+
 def matrice_depuis_aretes(sommets, aretes):
     """Construit la matrice d'adjacence ponderee (0 = pas d'arete). Fournie."""
     n = len(sommets)
@@ -106,8 +114,8 @@ def matrice_depuis_aretes(sommets, aretes):
     for i in range(n):
         M.append([0] * n)
     for (a, b, poids) in aretes:
-        i = sommets.index(a)
-        j = sommets.index(b)
+        i = indice(sommets, a)
+        j = indice(sommets, b)
         M[i][j] = poids
         M[j][i] = poids
     return M
@@ -171,6 +179,14 @@ def test_dijkstra_matrice():
     return distance == [0, 4, 3, 5, 6, 9, 8, 12]
 
 
+def en_texte(ch):
+    """Renvoie le chemin ch sous forme de texte, sommets separes par des tirets."""
+    texte = ch[0]
+    for i in range(1, len(ch)):
+        texte = texte + "-" + ch[i]
+    return texte
+
+
 def lancer(nom, test):
     """Lance un test sans planter si la fonction n'est pas encore ecrite."""
     try:
@@ -200,12 +216,12 @@ if __name__ == "__main__":
         distance, precedent = dijkstra(G_gros, 'A')
         for s in sommets:
             print("  A ->", s, ": cout", distance[s],
-                  " chemin", "-".join(chemin(precedent, 'A', s)))
+                  " chemin", en_texte(chemin(precedent, 'A', s)))
 
     if ok_dijkstra and ok_matrice:
         print()
         print("=== Meme gros graphe, version MATRICE ===")
-        distance_M, precedent_M = dijkstra_matrice(M_gros, sommets.index('A'))
+        distance_M, precedent_M = dijkstra_matrice(M_gros, indice(sommets, 'A'))
         distance, precedent = dijkstra(G_gros, 'A')
         memes = True
         for i in range(len(sommets)):

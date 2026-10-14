@@ -3,7 +3,6 @@
 
 import time
 import random
-import math
 from tp_dichotomie_annuaire import charger_annuaire
 
 # ------------------------------------------------------------------
@@ -69,12 +68,27 @@ def courbe_moyennes(noms, numeros, tailles):
         res.append(moyenne_comparaisons(noms[0:n], numeros[0:n], numero_dicho, 2000))
     return res
 
+def log2(n):
+    """Logarithme en base 2 de n (n >= 1) : le nombre x tel que 2 ** x == n.
+    Fonction fournie, calculee... par dichotomie (a 0.000001 pres)."""
+    bas = 0
+    haut = 1
+    while 2 ** haut < n:      # haut = premiere puissance de 2 qui atteint n
+        haut = haut + 1
+    while haut - bas > 0.000001:
+        mil = (bas + haut) / 2
+        if 2 ** mil <= n:
+            bas = mil
+        else:
+            haut = mil
+    return (bas + haut) / 2
+
 def tracer(tailles, moyennes):
     import matplotlib.pyplot as plt
     plt.plot(tailles, moyennes, "o-", label="dichotomie (mesuré)")
     logs = []
     for n in tailles:
-        logs.append(math.log2(n))
+        logs.append(log2(n))
     plt.plot(tailles, logs, "--", label="log2(n)")
     plt.xlabel("taille n de l'annuaire")
     plt.ylabel("comparaisons (moyenne)")

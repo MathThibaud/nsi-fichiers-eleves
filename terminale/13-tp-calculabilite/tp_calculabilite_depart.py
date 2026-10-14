@@ -10,7 +10,6 @@ puis lancer le fichier : les tests indiquent ce qui fonctionne.
   Partie 4   : une experience sur l'arret (la suite de Syracuse).
 """
 
-import itertools
 import random
 import time
 
@@ -36,24 +35,43 @@ def ruban_initial(mot):
     return ruban
 
 
+def lire_case(ruban, i):
+    """Le symbole de la case i (BLANC si la case est absente du ruban)."""
+    if i in ruban:
+        return ruban[i]
+    return BLANC
+
+
 def lire_ruban(ruban):
     """Le contenu du ruban, sans les blancs du debut et de la fin."""
     cases = [i for i in ruban if ruban[i] != BLANC]
     if cases == []:
         return ""
+    debut = cases[0]                  # plus petite case non blanche
+    fin = cases[0]                    # plus grande case non blanche
+    for i in cases:
+        if i < debut:
+            debut = i
+        if i > fin:
+            fin = i
     contenu = ""
-    for i in range(min(cases), max(cases) + 1):
-        contenu = contenu + ruban.get(i, BLANC)
+    for i in range(debut, fin + 1):
+        contenu = contenu + lire_case(ruban, i)
     return contenu
 
 
 def afficher_config(ruban, tete, etat):
     """Affiche l'etat, le ruban, et un ^ sous la case lue."""
-    debut = min(min(ruban), tete)
-    fin = max(max(ruban), tete)
+    debut = tete                      # de la case la plus a gauche...
+    fin = tete                        # ... a la plus a droite (tete comprise)
+    for i in ruban:
+        if i < debut:
+            debut = i
+        if i > fin:
+            fin = i
     ligne = ""
     for i in range(debut, fin + 1):
-        ligne = ligne + ruban.get(i, BLANC)
+        ligne = ligne + lire_case(ruban, i)
     print(f"{etat:>9} | {ligne}")
     print(" " * 12 + " " * (tete - debut) + "^")
 
@@ -62,7 +80,7 @@ def une_etape(regles, ruban, tete, etat):
     """A COMPLETER.
     Applique UNE regle : lit le symbole sous la tete, ecrit, deplace la tete.
     Modifie ruban et renvoie le couple (nouvelle_position, nouvel_etat)."""
-    lu = ruban.get(tete, BLANC)
+    lu = lire_case(ruban, tete)
     ...
 
 
@@ -78,7 +96,7 @@ def executer(regles, mot, limite=10000, trace=False):
     while etat not in ETATS_FINAUX:
         if etapes == limite:
             return None
-        if (etat, ruban.get(tete, BLANC)) not in regles:
+        if (etat, lire_case(ruban, tete)) not in regles:
             return ("bloquee", lire_ruban(ruban), etapes)
         if trace:
             afficher_config(ruban, tete, etat)
@@ -200,7 +218,11 @@ def test_increment():
 def test_parite():
     for n in range(300):
         mot = bin(n)[2:]
-        if mot.count("1") % 2 == 0:
+        nb_uns = 0
+        for c in mot:
+            if c == "1":
+                nb_uns += 1
+        if nb_uns % 2 == 0:
             attendu = "oui"
         else:
             attendu = "non"
@@ -209,8 +231,13 @@ def test_parite():
 
 def test_palindrome():
     for longueur in range(9):
-        for lettres in itertools.product("ab", repeat=longueur):
-            mot = "".join(lettres)
+        for k in range(2 ** longueur):       # tous les mots de cette longueur
+            mot = ""
+            for i in range(longueur):
+                if (k // 2 ** i) % 2 == 0:
+                    mot = mot + "a"
+                else:
+                    mot = mot + "b"
             if mot == mot[::-1]:
                 attendu = "oui"
             else:

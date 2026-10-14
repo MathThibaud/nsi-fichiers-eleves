@@ -35,6 +35,11 @@ def chrono(fonction, *arguments):
     return resultat, time.perf_counter() - debut
 
 
+def present(motif, texte):
+    """Renvoie True si le motif apparait dans le texte (operateur in de Python, ecrit en C)."""
+    return motif in texte
+
+
 def table_decalage(motif):
     """Table de Horspool (cours) : lettre -> distance a la fin (sauf la derniere lettre)."""
     m = len(motif)
@@ -62,7 +67,7 @@ def horspool_compte(motif, texte):
 
 
 def toutes_positions(motif, texte):
-    """Toutes les positions du motif (chevauchements compris), avec la methode find des chaines."""
+    """Toutes les positions du motif (chevauchements compris), en comparant les tranches texte[i:i + m] au motif."""
     positions = []
     # A completer
     return positions
@@ -122,7 +127,7 @@ def tester():
                 resultat = "ECHEC"
         except Exception as erreur:
             resultat = "ERREUR (" + type(erreur).__name__ + ")"
-        print(nom.ljust(22), resultat)
+        print(f"{nom:<22} {resultat}")
 
 
 if __name__ == "__main__":

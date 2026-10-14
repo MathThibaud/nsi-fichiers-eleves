@@ -154,6 +154,18 @@ def verifier_code(code):
 
 ORPHELINES = ["br", "img", "hr", "input", "meta", "link"]
 
+def minuscules(mot):
+    """Fournie. Renvoie mot dans lequel chaque majuscule de A a Z est
+    remplacee par la minuscule correspondante (code ASCII + 32)."""
+    resultat = ""
+    for c in mot:
+        if "A" <= c and c <= "Z":
+            resultat = resultat + chr(ord(c) + 32)
+        else:
+            resultat = resultat + c
+    return resultat
+
+
 def extraire_balises(html):
     """Fournie. Liste des noms de balises d'une page HTML, en minuscules,
     precedes de '/' pour les fermantes, sans attributs ; les balises
@@ -163,10 +175,17 @@ def extraire_balises(html):
     i = 0
     while i < len(html):
         if html[i] == "<":
-            j = html.index(">", i)
-            nom = html[i + 1:j].split()[0].rstrip("/")
-            if nom.lstrip("/").lower() not in ORPHELINES:
-                balises.append(nom.lower())
+            j = i
+            while html[j] != ">":              # j : position du '>' fermant
+                j = j + 1
+            nom = minuscules(html[i + 1:j].split()[0])
+            while len(nom) > 0 and nom[len(nom) - 1] == "/":   # '<br/>' -> 'br'
+                nom = nom[:len(nom) - 1]
+            base = nom                         # nom sans le '/' des fermantes
+            while len(base) > 0 and base[0] == "/":
+                base = base[1:]
+            if base not in ORPHELINES:
+                balises.append(nom)
             i = j + 1
         else:
             i = i + 1
@@ -208,7 +227,7 @@ def decouper(expr):
     jetons = []
     nombre = ""
     for c in expr:
-        if c.isdigit() or c == ".":
+        if c in "0123456789.":
             nombre = nombre + c
         else:
             if nombre != "":
