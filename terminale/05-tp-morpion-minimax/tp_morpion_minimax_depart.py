@@ -35,7 +35,7 @@ def depuis_texte(texte):
 
 def afficher(grille):
     for i in range(0, 9, 3):
-        print(" " + " | ".join(grille[i:i + 3]))
+        print(f" {grille[i]} | {grille[i + 1]} | {grille[i + 2]}")
         if i < 6:
             print("---+---+---")
 

@@ -283,7 +283,10 @@ def k_plus_proches(films, profil, k):
 def vote(classes):
     compte = {}
     for c in classes:
-        compte[c] = compte.get(c, 0) + 1
+        if c in compte:
+            compte[c] = compte[c] + 1
+        else:
+            compte[c] = 1
     meilleure = None
     for c in compte:
         if meilleure is None or compte[c] > compte[meilleure]:

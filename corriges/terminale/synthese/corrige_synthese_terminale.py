@@ -562,10 +562,20 @@ assert plus_longue_dyn("ALGORITHME", "LOGARITHME") == "RITHME"
 assert plus_longue_naive("ALGORITHME", "LOGARITHME") == "RITHME"
 assert plus_longue_dyn("ABAB", "BABA") == "ABA" and plus_longue_naive("ABAB", "BABA") == "ABA"
 assert plus_longue_dyn("abc", "xyz") == ""
+
+
+def mot_aleatoire():
+    """Mot aleatoire de 0 a 8 lettres prises dans "ab"."""
+    mot = ""
+    for _ in range(random.randint(0, 8)):
+        mot = mot + random.choice("ab")
+    return mot
+
+
 random.seed(2)
 for _ in range(300):
-    a = "".join([random.choice("ab") for _ in range(random.randint(0, 8))])
-    b = "".join([random.choice("ab") for _ in range(random.randint(0, 8))])
+    a = mot_aleatoire()
+    b = mot_aleatoire()
     assert len(plus_longue_dyn(a, b)) == len(plus_longue_naive(a, b))
     assert recherche_naive(plus_longue_dyn(a, b), a) != [] and recherche_naive(plus_longue_dyn(a, b), b) != []
 

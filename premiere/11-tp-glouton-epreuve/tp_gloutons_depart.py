@@ -12,7 +12,6 @@ le programme : en bas du fichier, chaque partie est testee et affiche
 import math
 import random
 import time
-import itertools
 
 
 # ============================================ Partie 1 : rendu de monnaie
@@ -133,12 +132,27 @@ def plus_proche_voisin(depart, villes):
     return tournee
 
 
+def tous_les_ordres(liste):
+    """FOURNIE (ne pas modifier). Liste de tous les ordres possibles des
+    elements de liste. On place les elements un par un : chaque nouvel
+    element est insere a toutes les positions possibles de chacun des
+    ordres deja construits."""
+    ordres = [[]]
+    for x in liste:
+        nouveaux = []
+        for ordre in ordres:
+            for k in range(len(ordre) + 1):
+                nouveaux.append(ordre[:k] + [x] + ordre[k:])
+        ordres = nouveaux
+    return ordres
+
+
 def tournee_optimale(depart, villes):
     """Force brute : essaie tous les ordres possibles des autres villes."""
     autres = [v for v in villes if v != depart]
     meilleure = None
-    for ordre in itertools.permutations(autres):
-        tournee = [depart] + [v for v in ordre]
+    for ordre in tous_les_ordres(autres):
+        tournee = [depart] + ordre
         ...
     return meilleure
 
@@ -161,8 +175,8 @@ def test_partie2():
 
 
 def test_partie3():
-    assert round(distance("Monaco", "Menton"), 1) == 7.1
-    assert round(longueur(["Monaco", "Menton", "Sospel"]), 1) == 34.7
+    assert abs(distance("Monaco", "Menton") - 7.1) < 0.05
+    assert abs(longueur(["Monaco", "Menton", "Sospel"]) - 34.7) < 0.05
     assert plus_proche_voisin("Monaco", VILLES)[:3] == ["Monaco", "Eze", "Nice"]
 
 

@@ -53,9 +53,15 @@ def normaliser(texte):
     sans_accents = unicodedata.normalize("NFD", texte)
     resultat = ""
     for c in sans_accents:
-        if unicodedata.category(c) != "Mn":      # "Mn" : un accent detache de sa lettre
+        if unicodedata.category(c) == "Mn":      # "Mn" : un accent detache de sa lettre
+            pass                                 # on l'oublie
+        elif "a" <= c <= "z":                    # minuscule -> majuscule
+            resultat = resultat + chr(ord(c) - ord("a") + ord("A"))
+        elif c == "œ" or c == "Œ":
+            resultat = resultat + "OE"
+        else:
             resultat = resultat + c
-    return resultat.upper().replace("Œ", "OE")
+    return resultat
 
 
 def empreinte(message, n):
@@ -242,7 +248,7 @@ def tester():
                 resultat = "ECHEC"
         except Exception as erreur:
             resultat = "ERREUR (" + type(erreur).__name__ + ")"
-        print(nom.ljust(20), resultat)
+        print(f"{nom:20} {resultat}")
 
 
 if __name__ == "__main__":

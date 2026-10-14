@@ -92,7 +92,7 @@ def jointure(gauche, droite, cle):
     for lg in gauche:
         for ld in droite:
             if lg[cle] == ld[cle]:
-                fusion = dict(lg)
+                fusion = {c: lg[c] for c in lg}
                 for c in ld:
                     fusion[c] = ld[c]
                 resultat.append(fusion)
@@ -101,7 +101,8 @@ def jointure(gauche, droite, cle):
 
 # ================================================ Partie 6 : exporter
 def en_texte(nombre):
-    """23.4 -> '23,4' (virgule decimale, pour un tableur regle en francais)."""
+    """23.4 -> '23,4' ; 31 -> '31,0' (un chiffre apres la virgule, virgule
+    decimale, pour un tableur regle en francais)."""
     ...
 
 
@@ -138,14 +139,14 @@ def test_partie3():
     propre = nettoyer(charger("releves_aout.csv", ";"))
     monaco = releves_de(propre, "MON")
     assert len(monaco) == 31
-    assert round(moyenne(monaco, "tmax"), 1) == 29.1
+    assert 29.05 <= moyenne(monaco, "tmax") < 29.15   # 29,1 au dixieme
     assert jour_le_plus_chaud(monaco) == ("MON", "2025-08-13", 32.1)
     assert compter_si(monaco, "tmin", 20) == 31
 
 
 def test_partie6():
     assert en_texte(23.4) == "23,4"
-    assert en_texte(31) == "31"
+    assert en_texte(31) == "31,0"
 
 
 # ================================================ Lancement des tests (ne pas modifier)

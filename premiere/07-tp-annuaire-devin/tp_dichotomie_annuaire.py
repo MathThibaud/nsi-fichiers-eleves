@@ -39,8 +39,14 @@ def charger_annuaire():
     gen = random.Random(2026)
     noms = []
     for nom in NOMS:
+        nom_affiche = ""
+        for lettre in nom:            # LE_GALL -> LE GALL
+            if lettre == "_":
+                nom_affiche = nom_affiche + " "
+            else:
+                nom_affiche = nom_affiche + lettre
         for prenom in PRENOMS:
-            noms.append(nom.replace("_", " ") + " " + prenom)
+            noms.append(nom_affiche + " " + prenom)
     noms.sort()
     numeros = []
     for k in range(len(noms)):
