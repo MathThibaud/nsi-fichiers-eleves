@@ -308,7 +308,7 @@ def soiree_gloutonne(duree_max, ordre):
     """ordre : liste de (titre, duree, points), deja rangee selon le critere."""
     choisis = []
     reste = duree_max
-    for (titre, duree, points) in ordre:
+    for (titre, duree, pts) in ordre:
         if duree <= reste:
             choisis.append(titre)
             reste = reste - duree
@@ -330,16 +330,16 @@ def meilleure_soiree(films, duree_max):
     for code in range(2 ** n):
         choix = []
         duree_totale = 0
-        points = 0
+        total_points = 0
         for i in range(n):
             if (code // 2 ** i) % 2 == 1:      # bit numero i du code
                 titre, duree, pts = films[i]
                 choix.append(titre)
                 duree_totale = duree_totale + duree
-                points = points + pts
-        if duree_totale <= duree_max and points > meilleurs_points:
+                total_points = total_points + pts
+        if duree_totale <= duree_max and total_points > meilleurs_points:
             meilleur_choix = choix
-            meilleurs_points = points
+            meilleurs_points = total_points
     return meilleur_choix, meilleurs_points
 
 

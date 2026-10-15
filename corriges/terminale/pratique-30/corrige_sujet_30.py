@@ -100,6 +100,8 @@ def test_vigenere():
 def test_dechiffre_vigenere():
     assert dechiffre_vigenere("PDMTZGMD", "CLE") == "NSIROCKS"
     assert dechiffre_vigenere(vigenere("TURING", "NSI"), "NSI") == "TURING"
+    assert dechiffre_vigenere("", "CLE") == ""
+    assert dechiffre_vigenere(vigenere("ZZZ", "B"), "B") == "ZZZ"
 
 
 test_cesar()
