@@ -13,13 +13,14 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
   sont aussi dans le dossier [`zips/`](zips/).
 - **Un seul fichier** : ouvrir le fichier sur GitHub, puis cliquer sur le bouton
   « Download raw file » (flèche vers le bas, en haut à droite du fichier).
-- **Le manuel complet** : les PDF des manuels de Première et de Terminale sont dans
-  le dossier [`livres/`](livres/).
+- **Le manuel complet** : les PDF des manuels de NSI (Première, Terminale) et de SNT
+  (Seconde) sont dans le dossier [`livres/`](livres/).
 
 ## Les manuels
 
 - [Manuel de NSI — Première](livres/manuel-nsi-premiere.pdf) (PDF)
 - [Manuel de NSI — Terminale](livres/manuel-nsi-terminale.pdf) (PDF)
+- [Manuel de SNT — Seconde](livres/manuel-snt-seconde.pdf) (PDF)
 
 ## Contenu
 
