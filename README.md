@@ -36,6 +36,7 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 - [Chapitre 8 — Les données en tables : Activité préparatoire — Ouvrir un fichier CSV](premiere/08-activite-fichiers-csv/) — [archive .zip](zips/premiere-08-activite-fichiers-csv.zip)
 - [Chapitre 8 — Les données en tables : TP — La météo de la Riviera](premiere/08-tp-meteo-riviera/) — [archive .zip](zips/premiere-08-tp-meteo-riviera.zip)
 - [Chapitre 8 — Les données en tables : Projet — Les prénoms de l'INSEE](premiere/08-projet-prenoms-insee/) — [archive .zip](zips/premiere-08-projet-prenoms-insee.zip)
+- [Chapitre 10 — Le Web : réseaux et interactions homme-machine : TP — Mon premier site, pas à pas](premiere/10-tp-site-web-guide/) — [archive .zip](zips/premiere-10-tp-site-web-guide.zip)
 - [Chapitre 11 — Les algorithmes gloutons : TP — Le glouton à l'épreuve](premiere/11-tp-glouton-epreuve/) — [archive .zip](zips/premiere-11-tp-glouton-epreuve.zip)
 - [Chapitre 12 — Les k plus proches voisins : TP — Reconnaître des chiffres et des lettres manuscrits](premiere/12-tp-ocr/) — [archive .zip](zips/premiere-12-tp-ocr.zip)
 - [Chapitre 12 — Les k plus proches voisins : Projet — Lire une plaque d'immatriculation](premiere/12-projet-plaque/) — [archive .zip](zips/premiere-12-projet-plaque.zip)

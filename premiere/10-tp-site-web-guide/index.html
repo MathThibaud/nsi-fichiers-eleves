@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <!-- TODO J1 : remplacer "Mon site" par "Club Astro - Accueil" -->
+  <title>Mon site</title>
+  <!-- TODO J2 : relier la feuille de style style.css (balise link) -->
+</head>
+<body>
+
+  <!-- TODO J1 : le titre principal (h1) "Club Astro" -->
+
+  <!-- TODO J1 : un paragraphe d'identifiant annonce (date de la prochaine nuit d'observation) -->
+
+  <!-- TODO J1 : la barre de navigation : un div de classe barre qui contient trois liens
+       - "Accueil" vers index.html
+       - "Infos pratiques" vers infos.html
+       - "En savoir plus" vers https://fr.wikipedia.org/wiki/Astronomie -->
+
+  <div class="carte">
+    <h2>Qui sommes-nous ?</h2>
+    <!-- TODO J1 : un paragraphe de presentation du club, avec quelques mots dans une balise strong -->
+  </div>
+
+  <div class="carte">
+    <h2>Ce que l'on observe</h2>
+    <!-- TODO J1 : une liste a puces (ul) d'au moins trois elements (li) -->
+  </div>
+
+  <div class="carte">
+    <h2>Le planning</h2>
+    <table>
+      <tr>
+        <th>Jour</th>
+        <th>Heure</th>
+        <th>Atelier</th>
+      </tr>
+      <tr>
+        <td>Lundi</td>
+        <td>12 h 30</td>
+        <td>Lire une carte du ciel</td>
+      </tr>
+      <!-- TODO J1 : ajouter deux lignes (tr) sur le modele de la ligne du lundi -->
+    </table>
+  </div>
+
+  <div class="carte">
+    <h2>Vous aimez le club ?</h2>
+    <!-- TODO J3 : un bouton "J'aime" qui appelle aimer() au clic,
+         et un paragraphe : Nombre de j'aime : <span id="nbJaime">0</span> -->
+  </div>
+
+  <div class="carte">
+    <h2>S'inscrire à la nuit d'observation</h2>
+    <!-- TODO J3 : un paragraphe Places restantes : <span id="places">3</span>,
+         un champ de texte d'identifiant nom, un bouton qui appelle inscrire() au clic,
+         et un paragraphe vide d'identifiant reponse -->
+  </div>
+
+  <!-- Le programme JavaScript est charge en dernier : les balises ci-dessus existent deja -->
+  <script src="script.js"></script>
+</body>
+</html>

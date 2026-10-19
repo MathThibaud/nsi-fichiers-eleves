@@ -1,0 +1,33 @@
+/* Feuille de style du Club Astro */
+/* Une regle : selecteur { propriete: valeur; } */
+
+/* Regle fournie (modele) : tous les blocs de classe carte */
+.carte {
+  border: 2px solid gray;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+/* TODO J2 : regle pour body (police sans-serif, couleur de fond claire, marge de 20px) */
+
+
+/* TODO J2 : regle pour h1 (couleur du texte, texte centre) */
+
+
+/* TODO J2 : regle pour l'identifiant annonce (fond dore, texte centre, marge interieure de 8px) */
+
+
+/* TODO J2 : regles pour th (fond fonce, texte blanc) et pour td (bordure, marge interieure) */
+
+
+/* TODO J2 : regle pour la classe barre (Flexbox : liens en ligne, espaces de 10px, fond fonce) */
+
+
+/* TODO J2 : regle pour les liens a (texte blanc, lisible sur le fond fonce de la barre) */
+
+
+/* TODO J3 : regle pour l'identifiant nbJaime (texte plus grand) */
+
+
+/* TODO J3 : regle pour la classe nuit (fond noir, texte rouge) */
+
