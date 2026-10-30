@@ -251,4 +251,4 @@ verifier("Partie 5", test_partie5)
 verifier("Partie 6", test_partie6)
 
 # Partie 7 : decommenter quand evolution est ecrite
-# tracer(propre(), [("Marie", "F"), ("Lea", "F"), ("Kevin", "G")], "courbes.png")
+# tracer(propre(), [("Marie", "F"), ("Léa", "F"), ("Kevin", "G")], "courbes.png")

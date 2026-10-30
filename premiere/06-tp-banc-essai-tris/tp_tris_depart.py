@@ -54,26 +54,25 @@ def presque_triee(n, k):
     return t
 
 def tester_partie_A():
-    try:
-        for n in [0, 1, 2, 7, 50]:
-            for fabrique in [aleatoire, triee, inversee]:
-                t = fabrique(n)
-                ref = sorted(t)
-                a = [x for x in t]
-                tri_selection_compte(a)
-                assert a == ref
-                b = [x for x in t]
-                tri_insertion_compte(b)
-                assert b == ref
-        assert tri_selection_compte([5, 3, 8, 1, 9, 2]) == (15, 4)
-        assert tri_insertion_compte([5, 3, 8, 1, 9, 2]) == (11, 8)
-        assert tri_insertion_compte([1, 2, 3, 4, 5]) == (4, 0)
-        assert tri_insertion_compte([5, 4, 3, 2, 1]) == (10, 10)
-        assert triee(4) == [0, 1, 2, 3]
-        assert inversee(4) == [4, 3, 2, 1]
-        print("Partie A : OK, tous les tests passent.")
-    except Exception:
-        print("Partie A : A FAIRE (ou un test echoue)")
+    """Si un test echoue, Python s'arrete sur une AssertionError
+    et affiche le message du test : corriger la fonction indiquee."""
+    assert triee(4) == [0, 1, 2, 3], "triee(4) doit valoir [0, 1, 2, 3]"
+    assert inversee(4) == [4, 3, 2, 1], "inversee(4) doit valoir [4, 3, 2, 1]"
+    for n in [0, 1, 2, 7, 50]:
+        for fabrique in [aleatoire, triee, inversee]:
+            t = fabrique(n)
+            ref = sorted(t)
+            a = [x for x in t]
+            tri_selection_compte(a)
+            assert a == ref, "tri_selection_compte ne trie pas correctement"
+            b = [x for x in t]
+            tri_insertion_compte(b)
+            assert b == ref, "tri_insertion_compte ne trie pas correctement"
+    assert tri_selection_compte([5, 3, 8, 1, 9, 2]) == (15, 4), "selection : mauvais compte"
+    assert tri_insertion_compte([5, 3, 8, 1, 9, 2]) == (11, 8), "insertion : mauvais compte"
+    assert tri_insertion_compte([1, 2, 3, 4, 5]) == (4, 0), "insertion : mauvais compte (liste triee)"
+    assert tri_insertion_compte([5, 4, 3, 2, 1]) == (10, 10), "insertion : mauvais compte (liste inversee)"
+    print("Partie A : OK, tous les tests passent.")
 
 # ------------------------------------------------------------------
 # Partie B -- Le banc d'essai (compter)

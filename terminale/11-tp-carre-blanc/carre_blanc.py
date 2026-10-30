@@ -42,7 +42,7 @@ def pgcb(x, y):
 # ---------------------------------------------------------------------------
 # Memoisation (top-down)
 # ---------------------------------------------------------------------------
-def pgcb_memo(x, y, memo={}):
+def pgcb_memo(x, y, memo=None):
     """Meme calcul que pgcb, en memorisant les resultats dans memo."""
     # A COMPLETER
     return 0

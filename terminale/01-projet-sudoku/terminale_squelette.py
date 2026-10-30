@@ -2,13 +2,13 @@
 """
 SQUELETTE ELEVE -- activite Sudoku (Terminale NSI, recursivite).
 
-Complete les fonctions marquees  # A COMPLETER , puis lance ce fichier :
+Completez les fonctions marquees  # A COMPLETER , puis lancez ce fichier :
     python3 terminale_squelette.py
 Les tests en bas affichent OK, ou A FAIRE ou ECHEC : ils doivent tous finir en OK.
 
 Ordre de travail (guide dans la fiche) :
 * PARTIES 1 et 2 : lire dans la grille, puis placement_valide et la
-  verification (tu peux t'inspirer de ce que tu as fait en Premiere) ;
+  verification (vous pouvez vous inspirer de ce que vous avez fait en Premiere) ;
 * PARTIE 3 : le solveur recursif (le coeur de l'activite).
 """
 
@@ -51,7 +51,7 @@ def grille_complete(grille):
 
 def grille_valide(grille):
     """True si une grille REMPLIE respecte les trois regles.
-    Astuce : pour tester une case, retire sa valeur, teste, puis remets-la."""
+    Astuce : pour tester une case, retirez sa valeur, testez, puis remettez-la."""
     pass  # A COMPLETER
 
 

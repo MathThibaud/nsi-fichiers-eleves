@@ -6,6 +6,10 @@
 --  2) taper ensuite vos propres requetes SELECT / UPDATE / ...
 -- ============================================================
 
+-- SQLite ne verifie les cles etrangeres (REFERENCES) que si on
+-- l'active, au debut de chaque session :
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE artiste (
     id   INTEGER PRIMARY KEY,
     nom  TEXT,
@@ -15,7 +19,7 @@ CREATE TABLE artiste (
 CREATE TABLE chanson (
     id         INTEGER PRIMARY KEY,
     titre      TEXT,
-    id_artiste INTEGER,   -- cle etrangere -> artiste.id
+    id_artiste INTEGER REFERENCES artiste(id),   -- cle etrangere
     annee      INTEGER,
     duree      INTEGER,   -- duree en secondes
     streams    INTEGER    -- nombre d'ecoutes, en millions

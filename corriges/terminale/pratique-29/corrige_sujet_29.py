@@ -58,16 +58,16 @@ def premiere_occurrence(tab, x):
     n'est pas dans tab"""
     resultat = -1
     debut = 0
-    fin = len(tab) - 1
-    while debut <= fin:
+    fin = len(tab)               # debut inclus, fin exclu
+    while debut < fin:
         milieu = (debut + fin) // 2
-        if tab[milieu] == x:
-            resultat = milieu        # on a trouvé x, mais peut-être pas le premier :
-            fin = milieu - 1         # on continue à chercher à gauche
-        elif tab[milieu] < x:
+        if tab[milieu] < x:
             debut = milieu + 1
+        elif tab[milieu] > x:
+            fin = milieu
         else:
-            fin = milieu - 1
+            resultat = milieu        # on a trouvé x, mais peut-être pas le premier :
+            fin = milieu             # on continue à chercher à gauche
     return resultat
 
 

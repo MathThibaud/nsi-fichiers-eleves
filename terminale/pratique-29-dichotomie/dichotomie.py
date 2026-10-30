@@ -35,15 +35,15 @@ def premiere_occurrence(tab, x):
     doublons. Renvoie le plus petit indice où se trouve x dans tab, ou -1 si x
     n'est pas dans tab"""
     debut = 0
-    fin = len(tab) - 1
-    while debut <= fin:
+    fin = len(tab)          # on cherche entre debut (inclus) et fin (exclu)
+    while debut < fin:
         milieu = (debut + fin) // 2
-        if tab[milieu] == x:
-            return milieu
-        elif tab[milieu] < x:
+        if tab[milieu] < x:
             debut = milieu + 1
+        elif tab[milieu] > x:
+            fin = milieu
         else:
-            fin = milieu - 1
+            return milieu
     return -1
 
 

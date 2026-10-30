@@ -126,6 +126,8 @@ synthèse) sont publiés, à part, dans le dossier [`corriges/`](corriges/).
 - [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 1 : notes, fréquences et graphiques](seconde/05-tp-tableur-1/) — [archive .zip](zips/seconde-05-tp-tableur-1.zip)
 - [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 2 : suites de nombres et conjecture](seconde/05-tp-tableur-2/) — [archive .zip](zips/seconde-05-tp-tableur-2.zip)
 - [Chapitre 5 — Les données structurées et leur traitement : TP — Tableur 3 : représenter et résumer une série](seconde/05-tp-tableur-3/) — [archive .zip](zips/seconde-05-tp-tableur-3.zip)
+- [Chapitre 3 — La photographie numérique : Projet — Retoucher un tableau : les images](seconde/03-projet-tableaux-rgb/) — [archive .zip](zips/seconde-03-projet-tableaux-rgb.zip)
+- [Chapitre 5 — Les données structurées et leur traitement : La table jeu au format CSV](seconde/05-donnees-jeux-csv/) — [archive .zip](zips/seconde-05-donnees-jeux-csv.zip)
 
 ### Corrigés (dossier `corriges/`)
 

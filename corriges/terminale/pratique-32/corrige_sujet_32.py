@@ -10,10 +10,14 @@ def lire_escalier(nom):
     return couts
 
 
+APPELS = [0]   # APPELS[0] compte les appels de effort_rec (question 2)
+
+
 def effort_rec(couts, i):
     """Renvoie l'effort minimal pour arriver sur la marche i (effort de la
     marche i compris), en montant d'une ou de deux marches à la fois.
     Version récursive."""
+    APPELS[0] = APPELS[0] + 1      # ligne ajoutee a la question 2
     if i == 0 or i == 1:
         return couts[i]
     return couts[i] + min(effort_rec(couts, i - 1), effort_rec(couts, i - 2))
@@ -79,23 +83,14 @@ def effort_glouton(couts):
 # Fonction nécessaire pour la question 2                                    #
 #############################################################################
 
-APPELS = [0]   # APPELS[0] compte les appels de la fonction effort_compte
-
-
-def effort_compte(couts, i):
-    """Version récursive naïve qui compte ses propres appels"""
-    APPELS[0] = APPELS[0] + 1
-    if i == 0 or i == 1:
-        return couts[i]
-    return couts[i] + min(effort_compte(couts, i - 1), effort_compte(couts, i - 2))
-
 
 def compter_appels(n):
-    """Renvoie le nombre d'appels récursifs nécessaires à la version naïve
-    pour un escalier de n marches"""
+    """Renvoie le nombre d'appels de effort_rec nécessaires à la version
+    récursive pour un escalier de n marches (effort_rec doit commencer par
+    l'instruction APPELS[0] = APPELS[0] + 1, voir la question 2)"""
     APPELS[0] = 0
     couts = [1] * n
-    min(effort_compte(couts, n - 1), effort_compte(couts, n - 2))
+    effort_total_rec(couts)
     return APPELS[0]
 
 

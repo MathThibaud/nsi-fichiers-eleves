@@ -5,6 +5,10 @@
 --  Copier-coller TOUT ce script, l'executer, puis requeter.
 -- ============================================================
 
+-- SQLite ne verifie les cles etrangeres (REFERENCES) que si on
+-- l'active, au debut de chaque session :
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE auteur (
     id   INTEGER PRIMARY KEY,
     nom  TEXT,
@@ -14,7 +18,7 @@ CREATE TABLE auteur (
 CREATE TABLE livre (
     id        INTEGER PRIMARY KEY,
     titre     TEXT,
-    id_auteur INTEGER,   -- cle etrangere -> auteur.id
+    id_auteur INTEGER REFERENCES auteur(id),   -- cle etrangere
     annee     INTEGER,
     genre     TEXT
 );
@@ -27,8 +31,8 @@ CREATE TABLE adherent (
 
 CREATE TABLE emprunt (
     id           INTEGER PRIMARY KEY,
-    id_livre     INTEGER,   -- cle etrangere -> livre.id
-    id_adherent  INTEGER,   -- cle etrangere -> adherent.id
+    id_livre     INTEGER REFERENCES livre(id),      -- cle etrangere
+    id_adherent  INTEGER REFERENCES adherent(id),   -- cle etrangere
     date_emprunt TEXT
 );
 

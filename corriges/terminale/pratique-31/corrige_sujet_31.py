@@ -126,6 +126,8 @@ def test_table_decalage():
 
 
 def test_horspool():
+    # on verifie d'abord la table : un decalage nul ferait boucler horspool
+    assert table_decalage("ACGT") == {"A": 3, "C": 2, "G": 1}
     assert horspool("MOTIF", "UN TEXTE AVEC UN MOTIF ICI") == [17]
     assert horspool("ACGT", "GTACACGTAC") == [4]
     assert horspool("ABA", "ABABABA") == [0, 2, 4]
@@ -133,6 +135,8 @@ def test_horspool():
 
 
 def test_comparaisons():
+    assert comparaisons_naive("MOTIF", "UN TEXTE AVEC UN MOTIF ICI") == 26
+    assert comparaisons_naive("AB", "AAAA") == 6
     assert comparaisons_horspool("MOTIF", "UN TEXTE AVEC UN MOTIF ICI") == 9
     assert comparaisons_horspool("AB", "AAAA") == 3
 

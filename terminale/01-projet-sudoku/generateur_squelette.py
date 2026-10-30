@@ -2,11 +2,11 @@
 """
 SQUELETTE ELEVE -- Creer des grilles de Sudoku (Terminale NSI, recursivite).
 
-Prerequis : ton solveur de terminale_squelette.py doit etre TERMINE
-(tous ses tests passent) : ce fichier reutilise tes fonctions.
+Prerequis : votre solveur de terminale_squelette.py doit etre TERMINE
+(tous ses tests passent) : ce fichier reutilise vos fonctions.
 
-Complete les fonctions marquees  # A COMPLETER , dans l'ordre des etapes
-de la fiche, puis lance :   python3 generateur_squelette.py
+Completez les fonctions marquees  # A COMPLETER , dans l'ordre des etapes
+de la fiche, puis lancez :   python3 generateur_squelette.py
 Les tests s'executent etape par etape : une etape pas encore ecrite est
 simplement signalee, les suivantes attendent.
 """
@@ -185,11 +185,11 @@ def _afficher_niveaux():
         print(f"Niveau {niveau} ({nb_indices(enonce)} indices) :")
         afficher(enonce)
         print()
-    print("Bravo : ton generateur fonctionne !")
+    print("Bravo : votre generateur fonctionne !")
 
 
 if __name__ == "__main__":
     if resoudre(copie(FACILE)) is None:
-        print("Termine d'abord ton solveur dans terminale_squelette.py !")
+        print("Terminez d'abord votre solveur dans terminale_squelette.py !")
     elif _lancer(_etape1) and _lancer(_etape2) and _lancer(_etape3) and _lancer(_etape4):
         _afficher_niveaux()

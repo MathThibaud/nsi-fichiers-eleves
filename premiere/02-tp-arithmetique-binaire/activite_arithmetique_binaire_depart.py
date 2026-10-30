@@ -88,7 +88,6 @@ def tester_B():
         assert decoder_c2("11111011") == -5
         assert decoder_c2("01111111") == 127
         assert decoder_c2("10000000") == -128
-        assert decoder_c2(soustraire("0010", "0111")) == -5
         print("Partie B : OK, tous les tests passent.")
     except Exception:
         print("Partie B : A FAIRE (ou un test echoue)")
@@ -123,8 +122,12 @@ def xor(a, b):
 
 def tester_C():
     try:
+        assert non("0") == "1"
+        assert non("1") == "0"
         for a in "01":
             for b in "01":
+                assert et(a, b) == str(int(a) * int(b))
+                assert ou(a, b) == str(int(a) + int(b) - int(a) * int(b))
                 assert xor(a, b) == str((int(a) + int(b)) % 2)
         print("Partie C : OK, tous les tests passent.")
     except Exception:
@@ -168,6 +171,12 @@ def tester_D():
 
 # ---------- Partie E : La soustraction ----------
 
+def sans_premier(s):
+    """Renvoie la chaine s privee de son premier caractere."""
+    # A COMPLETER
+    return None
+
+
 def soustraire(s1, s2):
     """s1 - s2 en complement a deux, sur le nombre de bits de s1."""
     # A COMPLETER
@@ -182,8 +191,11 @@ def depassement(s1, s2):
 
 def tester_E():
     try:
+        assert sans_premier("10110") == "0110"
+        assert sans_premier("1") == ""
         assert soustraire("0111", "0010") == "0101"
         assert soustraire("0010", "0111") == "1011"
+        assert decoder_c2(soustraire("0010", "0111")) == -5
         assert depassement("0111", "0001") is True
         assert depassement("0011", "0010") is False
         assert depassement("1000", "1111") is True
