@@ -6,17 +6,28 @@ Première NSI — Chapitre 11 — Les algorithmes gloutons.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2015/day/3>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Le Père Noël livre des cadeaux dans des maisons disposées sur une grille infinie, une maison par case. Un elfe un peu distrait lui indique par radio la direction à prendre, case après case ; le fichier contient toute la suite de ces indications sur une seule ligne. Le Père Noël dépose un cadeau à chaque maison où il passe, et l'on veut savoir combien de maisons auront eu au moins un cadeau.
+**Contexte.** Le Père Noël livre des cadeaux dans des maisons disposées sur une grille infinie, une maison par case. Un elfe un peu distrait lui indique par radio la direction à prendre, case après case. Le Père Noël dépose un cadeau dans chaque maison où il passe ; comme il repasse parfois au même endroit, certaines maisons reçoivent plusieurs cadeaux. On veut savoir combien de maisons auront eu au moins un cadeau.
 
-**Ce qu'il faut faire.**
-- Les caractères `^`, `v`, `>`, `<` font avancer d'une case vers le nord, le sud, l'est ou l'ouest.
-- La maison de départ reçoit elle aussi un cadeau.
-- Réponse : le nombre de maisons **différentes** visitées au moins une fois ; une maison visitée plusieurs fois ne compte qu'une fois.
+**Les données.** Le fichier contient **une seule ligne**, très longue : la suite de toutes les indications de l'elfe. Chaque caractère est une flèche : `^` (nord), `v` (sud), `>` (est) ou `<` (ouest).
+
+**La règle.**
+- Le Père Noël part d'une maison de départ, qui reçoit elle aussi un cadeau.
+- On lit les caractères dans l'ordre ; chacun le fait avancer d'**une** case dans la direction indiquée, et il dépose un cadeau dans la maison où il arrive.
+- Une maison visitée plusieurs fois (y compris la maison de départ, s'il y revient) ne compte qu'une fois.
+
+**La réponse attendue.** Le nombre de maisons **différentes** visitées au moins une fois, départ compris. Par exemple, avec la ligne `>>`, trois maisons sont visitées ; avec la ligne `^v^v`, le Père Noël fait des allers-retours entre deux maisons : la réponse serait 2.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-L'année suivante, le Père Noël se fait aider par un robot livreur. Les deux partent de la même maison et se partagent les indications à tour de rôle : le 1ᵉʳ, le 3ᵉ, le 5ᵉ… caractère pour l'un, le 2ᵉ, le 4ᵉ… pour l'autre. Réponse : le nombre de maisons différentes visitées par au moins l'un des deux, départ compris.
+**Ce qui change.** L'année suivante, le Père Noël se fait aider par un robot livreur. Les deux partent de la même maison de départ et se partagent la même ligne d'indications.
+
+**La nouvelle règle.**
+- Les indications sont distribuées à tour de rôle : le 1ᵉʳ, le 3ᵉ, le 5ᵉ… caractère pour le Père Noël, le 2ᵉ, le 4ᵉ… pour le robot.
+- Chacun se déplace uniquement avec ses propres indications, en partant de la maison de départ, selon la même règle que dans la partie 1.
+- Une maison visitée par les deux, ou plusieurs fois, ne compte qu'une fois.
+
+**La réponse attendue.** Le nombre de maisons différentes visitées par au moins l'un des deux, départ compris. Par exemple, avec la ligne `^v^v`, le Père Noël reçoit les deux `^` et le robot les deux `v` : ils s'éloignent chacun de deux cases, et la réponse serait 5 (contre 2 dans la partie 1).
 
 </details>
 

@@ -6,18 +6,29 @@ Première NSI — Chapitre 4 — Algorithmique : le parcours séquentiel.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2021/day/1>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Les clés du traîneau sont tombées à la mer, et vous voilà dans un sous-marin pour les récupérer. En s'éloignant, le sonar du sous-marin mesure la profondeur du fond marin, point après point. Le fichier est ce relevé : chaque ligne est une profondeur, dans l'ordre où elles ont été mesurées. On veut savoir si le fond descend vite.
+**Contexte.** Les clés du traîneau sont tombées à la mer, et vous voilà dans un sous-marin pour les récupérer. Pendant que le sous-marin avance, son sonar mesure la profondeur du fond marin, point après point. Avant de plonger plus loin, on veut savoir à quel point le fond descend : est-ce qu'il s'enfonce souvent, ou est-ce qu'il reste plat ?
 
-**Ce qu'il faut faire.**
-- Le fichier contient une mesure (un entier) par ligne.
-- Il faut compter combien de fois une mesure est **strictement** plus grande que la mesure juste avant elle ; autrement dit, combien de fois le fond s'enfonce d'un point au suivant.
-- La première mesure n'a pas de précédente : elle n'est jamais comptée. Deux mesures égales ne comptent pas non plus.
-- La réponse est ce nombre d'augmentations.
+**Les données.** Le fichier est le relevé du sonar. Chaque ligne contient **un seul entier** : une profondeur, en mètres. Les lignes sont dans l'ordre où les mesures ont été faites : la ligne 2 a été mesurée juste après la ligne 1, et ainsi de suite. Plus le nombre est grand, plus le fond est profond.
+
+**La règle.**
+- On compare chaque mesure à la mesure **juste avant elle** (et seulement à celle-là).
+- Si elle est **strictement** plus grande, le fond s'est enfoncé : on compte une augmentation.
+- Si elle est plus petite ou égale, on ne compte rien.
+- La première mesure n'a pas de mesure avant elle : elle ne peut pas compter.
+
+**La réponse attendue.** Le nombre total d'augmentations dans tout le fichier. Par exemple, pour les quatre mesures 10, 12, 12, 15, il y a deux augmentations (de 10 à 12, puis de 12 à 15) : la réponse serait 2.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Les mesures isolées sont trop sensibles au bruit du sonar : on les lisse en les regroupant. On remplace la liste par les sommes de **trois mesures consécutives** : mesures 1-2-3, puis 2-3-4, puis 3-4-5…{} Ces groupes se chevauchent, et l'on s'arrête quand il ne reste plus trois mesures. La réponse est le nombre de sommes strictement plus grandes que la somme précédente.
+**Ce qui change.** Une mesure isolée peut être faussée par le bruit du sonar : un poisson qui passe, une vague. Pour avoir une idée plus fiable du relief, on ne compare plus les mesures une à une, mais des **groupes de trois mesures consécutives**.
+
+**La nouvelle règle.**
+- On calcule la somme des mesures 1, 2 et 3 ; puis celle des mesures 2, 3 et 4 ; puis 3, 4 et 5, et ainsi de suite. Les groupes se **chevauchent** : chaque nouveau groupe perd la plus ancienne mesure et gagne la suivante.
+- On s'arrête quand il ne reste plus trois mesures pour former un groupe complet.
+- On compte, comme dans la partie 1, combien de fois une somme est strictement plus grande que la somme juste avant elle.
+
+**La réponse attendue.** Ce nombre d'augmentations entre sommes consécutives.
 
 </details>
 

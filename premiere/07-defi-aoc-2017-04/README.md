@@ -6,16 +6,28 @@ Première NSI — Chapitre 7 — La recherche dichotomique.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2017/day/4>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Un nouveau système informatique protège ses comptes par des « phrases de passe » : plusieurs mots en minuscules séparés par des espaces. Pour qu'une phrase soit assez sûre, elle doit respecter une règle de construction. Le fichier contient une liste de phrases de passe, une par ligne, et l'on veut savoir combien sont acceptables.
+**Contexte.** Un nouveau système informatique protège ses comptes par des « phrases de passe » plutôt que par des mots de passe. Pour qu'une phrase soit assez sûre, elle doit respecter une règle de construction. On dispose d'une liste de phrases de passe et l'on veut savoir combien d'entre elles sont acceptables.
 
-**Ce qu'il faut faire.**
-- Une phrase est valide si elle ne contient **jamais deux fois le même mot**, exactement le même (une ressemblance ne suffit pas à la rendre invalide).
-- Réponse : le nombre de lignes valides.
+**Les données.** Le fichier contient une phrase de passe par ligne. Une phrase est formée de plusieurs mots en lettres minuscules, séparés par des espaces. Le nombre de mots varie d'une ligne à l'autre.
+
+**La règle.**
+- Une phrase est valide si elle ne contient **jamais deux fois le même mot**.
+- Il faut que les deux mots soient exactement identiques pour faire un doublon : une simple ressemblance (un mot contenu dans un autre, les mêmes lettres dans un autre ordre) ne rend pas la phrase invalide.
+- Une phrase d'un seul mot est donc toujours valide.
+
+**La réponse attendue.** Le nombre de lignes valides du fichier. Par exemple, la ligne `vert bleu vert` est invalide (`vert` deux fois), alors que `vert verte` est valide.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Le service de sécurité durcit la règle : un mot ne doit pas pouvoir s'obtenir en mélangeant les lettres d'un autre mot de la même ligne. Une phrase est valide si aucun mot n'est une **anagramme** d'un autre (mêmes lettres, en même nombre, dans un ordre éventuellement différent). Deux mots identiques sont aussi anagrammes. Réponse : le nombre de lignes valides.
+**Ce qui change.** Le service de sécurité durcit la règle : un mot ne doit pas pouvoir s'obtenir en mélangeant les lettres d'un autre mot de la même ligne.
+
+**La nouvelle règle.**
+- Une phrase est valide si aucun de ses mots n'est une **anagramme** d'un autre de ses mots.
+- Deux mots sont anagrammes s'ils ont les mêmes lettres, chacune en même nombre, dans un ordre éventuellement différent.
+- Deux mots identiques sont aussi anagrammes : une ligne invalide dans la partie 1 reste invalide.
+
+**La réponse attendue.** Le nombre de lignes valides avec cette nouvelle règle. Par exemple, `pot top` est maintenant invalide, mais `pot pots` reste valide (un `s` de plus).
 
 </details>
 

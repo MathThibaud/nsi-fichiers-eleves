@@ -8,16 +8,27 @@ Première NSI — Chapitre 4 — Algorithmique : le parcours séquentiel.
 
 **Contexte.** Dans une centrale nucléaire du pôle Nord, les ingénieurs vous demandent d'analyser des relevés étranges du réacteur. Chaque relevé est une suite de mesures (des « niveaux »). Le réacteur ne supporte que des niveaux qui évoluent régulièrement, sans à-coups : il faut repérer les relevés rassurants.
 
-**Ce qu'il faut faire.**
-- Chaque ligne est un relevé : des entiers séparés par une espace. Le nombre de niveaux varie d'une ligne à l'autre.
-- Un relevé est **sûr** si deux conditions sont vraies à la fois. Première condition : les niveaux sont tous croissants ou tous décroissants. Seconde condition : deux niveaux voisins diffèrent d'**au moins 1** et d'**au plus 3**.
-- Autrement dit, d'un niveau au suivant, le relevé avance toujours dans le même sens, par petits pas, sans jamais stagner.
-- La réponse est le nombre de relevés sûrs.
+**Les données.** Chaque ligne du fichier est un relevé : des entiers séparés par une espace, par exemple `3 5 6 9`. Le nombre de niveaux varie d'une ligne à l'autre. Les relevés sont indépendants les uns des autres.
+
+**La règle.** Un relevé est **sûr** si les deux conditions suivantes sont vraies à la fois :
+- les niveaux sont tous croissants, ou bien tous décroissants (pas de changement de sens) ;
+- deux niveaux voisins diffèrent d'**au moins 1** et d'**au plus 3** (deux voisins égaux rendent donc le relevé dangereux).
+
+Autrement dit, d'un niveau au suivant, le relevé avance toujours dans le même sens, par petits pas, sans jamais stagner.
+
+**La réponse attendue.** Le nombre de relevés sûrs du fichier. Par exemple, parmi les trois relevés `3 5 6 9` (écarts +2, +1, +3 : sûr), `4 4 5` (écart nul : dangereux) et `1 6 7` (écart +5 : dangereux), un seul est sûr : la réponse serait 1.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Les ingénieurs signalent que le réacteur dispose d'un « amortisseur » capable d'ignorer une seule mesure aberrante. Un relevé compte donc maintenant aussi comme sûr s'il devient sûr quand on lui retire **un seul** de ses niveaux, n'importe lequel. La réponse est le nouveau nombre de relevés sûrs.
+**Ce qui change.** Les ingénieurs signalent que le réacteur dispose d'un « amortisseur » capable d'ignorer une seule mesure aberrante. Certains relevés jugés dangereux dans la partie 1 deviennent donc acceptables.
+
+**La nouvelle règle.**
+- Un relevé déjà sûr selon la partie 1 reste sûr.
+- Un relevé dangereux compte maintenant aussi comme sûr s'il devient sûr quand on lui retire **un seul** de ses niveaux, n'importe lequel (le premier, le dernier ou un niveau du milieu).
+- Les conditions pour être sûr sont les mêmes que dans la partie 1.
+
+**La réponse attendue.** Le nouveau nombre de relevés sûrs. Avec les trois relevés inventés ci-dessus, `4 4 5` devient sûr en retirant un `4`, et `1 6 7` en retirant le `1` : la réponse serait 3.
 
 </details>
 

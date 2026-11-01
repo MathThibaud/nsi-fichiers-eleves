@@ -6,21 +6,30 @@ Terminale NSI — Chapitre 8 — Graphes.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2020/day/20>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Les messages du satellite contiennent en fait une photo, mais l'appareil l'a envoyée découpée en petits carrés (des « tuiles »), mélangés et, pire, tournés ou retournés au hasard. Il faut reconstituer ce puzzle. Chaque bloc du fichier est une tuile en noir et blanc, avec son numéro.
+**Contexte.** Les messages du satellite contiennent en fait une photo, mais l'appareil l'a envoyée découpée en petits carrés (des « tuiles »), mélangés et, pire, tournés ou retournés au hasard. Il faut reconstituer ce puzzle. Pour commencer, il suffit de trouver les quatre tuiles des coins.
 
-**Ce qu'il faut faire.**
-- Un bloc est une ligne `Tile <numéro>:` suivie d'une grille carrée de 10 × 10 caractères `.` ou `#` ; les blocs sont séparés par une ligne vide.
-- Remises dans le bon sens, les tuiles forment une image carrée. Chaque tuile a pu être tournée d'un nombre quelconque de quarts de tour et/ou retournée en miroir.
-- Deux tuiles voisines dans l'image ont, une fois bien orientées, des bords identiques : c'est ce qui permet de les raccorder. Les bords extérieurs de l'image ne correspondent à aucune autre tuile (en pratique, deux tuiles non voisines n'ont jamais de bord commun).
-- Réponse : le produit des numéros des quatre tuiles placées aux coins de l'image.
+**Les données.** Le fichier est une suite de blocs séparés par une ligne vide. Chaque bloc est une tuile : une ligne `Tile <numéro>:` qui donne son numéro, suivie d'une grille carrée de 10 × 10 caractères, `.` (blanc) ou `#` (noir). Le nombre de tuiles est un carré parfait : l'image complète est un carré de tuiles.
+
+**La règle.**
+- Chaque tuile a pu être tournée d'un nombre quelconque de quarts de tour et/ou retournée en miroir.
+- Deux tuiles voisines dans l'image ont, une fois bien orientées, des bords identiques : c'est ce qui permet de les raccorder.
+- Les bords extérieurs de l'image ne correspondent à aucune autre tuile.
+- En pratique, deux tuiles non voisines n'ont jamais de bord commun : un bord partagé désigne donc sans ambiguïté deux voisines.
+
+**La réponse attendue.** Le produit des numéros des quatre tuiles placées aux coins de l'image. Par exemple, si les coins portaient les numéros 2, 3, 5 et 7, la réponse serait 2 × 3 × 5 × 7 = 210.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Une fois l'image reconstituée, on y cherche des monstres marins.
-- Assembler l'image, retirer le bord (première et dernière lignes et colonnes) de chaque tuile, puis recoller les tuiles : chacune devient un carré 8 × 8.
-- Chercher un motif (le « monstre », dessiné sur le site) dans l'une des 8 orientations de l'image : chaque `#` du motif doit tomber sur un `#` de l'image, les autres cases sont quelconques.
-- Réponse : le nombre de `#` de l'image qui n'appartiennent à aucun monstre.
+**Ce qui change.** Il faut maintenant reconstituer vraiment l'image, puis y chercher des monstres marins, dont le dessin (un motif de `#`) est donné sur le site.
+
+**La nouvelle règle.**
+- Assembler l'image en orientant chaque tuile pour que ses bords coïncident avec ceux de ses voisines.
+- Retirer le bord (première et dernière lignes et colonnes) de chaque tuile, puis recoller les tuiles : chacune devient un carré 8 × 8.
+- Chercher le motif dans l'une des 8 orientations de l'image : chaque `#` du motif doit tomber sur un `#` de l'image, les autres cases du motif sont quelconques.
+- Une seule orientation de l'image contient des monstres.
+
+**La réponse attendue.** Le nombre de `#` de l'image qui n'appartiennent à aucun monstre. Par exemple, si l'image contenait 100 `#` dont 30 couverts par des monstres, la réponse serait 70.
 
 </details>
 

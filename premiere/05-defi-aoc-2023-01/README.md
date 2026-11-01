@@ -6,18 +6,28 @@ Première NSI — Chapitre 5 — Spécifier et mettre au point ses programmes.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2023/day/1>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Les elfes s'apprêtent à vous envoyer dans le ciel avec un trébuchet, mais son document de réglage a été « décoré » par un jeune elfe : à chaque ligne, les nombres utiles sont noyés au milieu de lettres et d'autres chiffres. Il faut retrouver, pour chaque ligne, une valeur de réglage avant le lancement.
+**Contexte.** Les elfes s'apprêtent à vous envoyer dans le ciel avec un trébuchet, mais son document de réglage a été « décoré » par un jeune elfe : à chaque ligne, les nombres utiles sont noyés au milieu de lettres et d'autres chiffres. Avant le lancement, il faut retrouver la valeur de réglage cachée dans chaque ligne.
 
-**Ce qu'il faut faire.**
-- Chaque ligne est une chaîne mêlant lettres et chiffres, avec au moins un chiffre.
-- La valeur d'une ligne est le nombre à deux chiffres formé par son **premier** chiffre suivi de son **dernier** chiffre. On accole les deux chiffres, on ne les additionne pas.
+**Les données.** Chaque ligne du fichier est une chaîne qui mêle des lettres minuscules et des chiffres, par exemple `x3yz7k`. Chaque ligne contient au moins un chiffre.
+
+**La règle.**
+- Dans une ligne, on repère le **premier** chiffre (le plus à gauche) et le **dernier** chiffre (le plus à droite) ; les chiffres du milieu ne servent pas.
+- La valeur de la ligne est le nombre à deux chiffres obtenu en écrivant le premier chiffre puis le dernier. On accole les deux chiffres, on ne les additionne pas.
 - S'il n'y a qu'un chiffre, il sert à la fois de premier et de dernier.
-- Réponse : la somme des valeurs de toutes les lignes.
+
+**La réponse attendue.** La somme des valeurs de toutes les lignes. Par exemple, la ligne `a4b7c2` vaut 42 (premier chiffre 4, dernier chiffre 2 ; le 7 ne sert pas) ; un fichier formé de cette seule ligne donnerait la réponse 42.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-On s'aperçoit que certains chiffres étaient écrits en toutes lettres. Les chiffres de 1 à 9 écrits en anglais (`one`, `two`, …, `nine`) comptent maintenant aussi comme des chiffres. La valeur d'une ligne se calcule comme avant, avec le premier et le dernier chiffre, qu'ils soient écrits avec un chiffre ou en lettres.
+**Ce qui change.** On s'aperçoit que certains chiffres étaient écrits en toutes lettres, en anglais, au milieu des autres lettres : ils comptaient eux aussi.
+
+**La nouvelle règle.**
+- Les mots `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine` comptent maintenant comme les chiffres 1 à 9.
+- Le premier et le dernier chiffre d'une ligne peuvent donc être écrits avec un chiffre ou en lettres.
+- La valeur d'une ligne se calcule comme avant, en accolant le premier et le dernier chiffre.
+
+**La réponse attendue.** La somme des nouvelles valeurs de toutes les lignes. Par exemple, la ligne `xtwo3sevenx` vaut 27 : son premier chiffre est `two` et son dernier est `seven`.
 
 </details>
 

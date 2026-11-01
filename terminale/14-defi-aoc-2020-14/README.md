@@ -6,20 +6,30 @@ Terminale NSI — Chapitre 14 — Systèmes sur puce et informatique embarquée.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2020/day/14>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** À l'approche du port, l'ordinateur du ferry doit initialiser sa mémoire, mais il ne comprend pas le système de masques de bits utilisé par le port. Vous allez émuler ce système. Le fichier est un petit programme : chaque ligne change le masque courant ou écrit une valeur en mémoire.
+**Contexte.** À l'approche du port, l'ordinateur du ferry doit initialiser sa mémoire, mais il ne comprend pas le système de masques de bits utilisé par le port. Vous allez émuler ce système, c'est-à-dire le reproduire par un programme.
 
-**Ce qu'il faut faire.**
-- Une ligne `mask = ` est suivie de 36 caractères parmi `0`, `1`, `X` ; une ligne `mem[a] = v` écrit la valeur v à l'adresse a. Adresses et valeurs sont des entiers positifs sur 36 bits.
-- Le masque s'écrit bit de poids fort à gauche (2^35) et reste en vigueur jusqu'au `mask` suivant.
-- Juste avant chaque écriture, on applique le masque à la valeur : un `0` ou un `1` du masque impose ce bit, un `X` laisse le bit de v tel quel. Autrement dit, le masque ne retouche que certains bits.
-- Toutes les cases valent 0 au départ ; écrire à nouveau à la même adresse remplace l'ancienne valeur. La réponse est la somme de toutes les valeurs présentes en mémoire à la fin.
+**Les données.** Le fichier est un petit programme ; chaque ligne est de l'une des deux formes suivantes.
+- `mask = ` suivi de 36 caractères parmi `0`, `1`, `X` : elle change le masque courant. Le masque s'écrit bit de poids fort à gauche (2^35) et reste en vigueur jusqu'au `mask` suivant.
+- `mem[a] = v` : elle écrit la valeur v à l'adresse a. Adresses et valeurs sont des entiers positifs sur 36 bits, écrits en décimal.
+
+**La règle.**
+- Juste avant chaque écriture, on applique le masque à la **valeur** : un `0` ou un `1` du masque impose ce bit, un `X` laisse le bit de v tel quel. Autrement dit, le masque ne retouche que certains bits.
+- Toutes les cases de la mémoire valent 0 au départ.
+- Écrire à nouveau à la même adresse remplace l'ancienne valeur.
+
+**La réponse attendue.** La somme de toutes les valeurs présentes en mémoire à la fin du programme. Par exemple, si le masque se termine par `10XX` (et ne contient que des `X` avant), écrire 7 (`0111`) donne `1011`, soit 11, et écrire 1 (`0001`) donne `1001`, soit 9 ; à deux adresses différentes, la réponse serait 11 + 9 = 20.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Le programme ne fonctionne toujours pas : la version du système utilisée par le port est en fait un « décodeur d'adresses ».
-- Le masque agit maintenant sur l'**adresse**, et la valeur est écrite telle quelle : un `0` laisse le bit de l'adresse inchangé, un `1` le force à 1, un `X` est *flottant* et prend les deux valeurs.
-- Avec k bits flottants, la valeur est donc écrite dans 2^k adresses. La réponse demandée est la même.
+**Ce qui change.** Le programme ne fonctionne toujours pas : la version du système utilisée par le port est en fait un « décodeur d'adresses ». Le masque agit maintenant sur l'**adresse**, et la valeur est écrite telle quelle.
+
+**La nouvelle règle.**
+- Un `0` du masque laisse le bit de l'adresse inchangé (attention : ce n'est plus comme en partie 1).
+- Un `1` force le bit de l'adresse à 1.
+- Un `X` est *flottant* : il prend les deux valeurs 0 et 1. Avec k bits flottants, la valeur est donc écrite dans 2^k adresses.
+
+**La réponse attendue.** La même qu'en partie 1 : la somme des valeurs en mémoire à la fin. Par exemple, si le masque se termine par `0X1` (que des `0` avant), écrire 7 à l'adresse 4 (`100`) donne le modèle `1X1` : la valeur 7 est écrite aux adresses 5 et 7, ce qui apporte 14 à la somme.
 
 </details>
 

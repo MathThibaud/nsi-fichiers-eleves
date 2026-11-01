@@ -6,17 +6,28 @@ Première NSI — Chapitre 11 — Les algorithmes gloutons.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2025/day/3>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Dans le hall d'un immeuble, les ascenseurs sont en panne, et même l'escalier mécanique est à l'arrêt faute de courant. Des batteries de secours peuvent l'alimenter. Elles sont rangées en groupes, et chaque batterie porte une tension de 1 à 9. Chaque ligne du fichier décrit un groupe : la suite des tensions de ses batteries, dans l'ordre où elles sont rangées.
+**Contexte.** Dans le hall d'un immeuble, les ascenseurs sont en panne, et même l'escalier mécanique est à l'arrêt faute de courant. Des batteries de secours peuvent l'alimenter. Elles sont rangées en groupes, et chaque batterie porte une tension de 1 à 9. Il faut tirer le maximum de chaque groupe.
 
-**Ce qu'il faut faire.**
-- Dans chaque groupe, on allume **exactement deux** batteries. Le groupe produit le nombre à deux chiffres formé par leurs tensions, **dans l'ordre de la ligne** : on ne peut pas réordonner les batteries.
-- On veut, pour chaque groupe, le plus grand nombre possible.
-- Réponse : la somme de ces maxima sur toutes les lignes.
+**Les données.** Chaque ligne du fichier décrit un groupe de batteries : c'est une suite de chiffres de 1 à 9, sans espace, par exemple `4815`. Chaque chiffre est la tension d'une batterie, et les chiffres sont dans l'ordre où les batteries sont rangées.
+
+**La règle.**
+- Dans chaque groupe, on allume **exactement deux** batteries.
+- Le groupe produit le nombre à deux chiffres formé par leurs tensions, **dans l'ordre de la ligne** : la batterie la plus à gauche donne le chiffre des dizaines. On ne peut pas réordonner les batteries.
+- Pour chaque groupe, on cherche le plus grand nombre que l'on peut produire ainsi.
+
+**La réponse attendue.** La somme de ces maxima sur toutes les lignes. Par exemple, dans le groupe `4815`, on peut former 48, 41, 45, 81, 85 ou 15 : le maximum est 85.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Deux batteries par groupe ne suffisent pas à faire repartir l'escalier. On allume maintenant **exactement 12** batteries dans chaque groupe, toujours sans changer leur ordre, pour former le plus grand nombre de 12 chiffres possible. Réponse : la somme de ces maxima sur toutes les lignes.
+**Ce qui change.** Deux batteries par groupe ne suffisent pas à faire repartir l'escalier : il faut en allumer beaucoup plus.
+
+**La nouvelle règle.**
+- Dans chaque groupe, on allume maintenant **exactement 12** batteries.
+- Elles forment un nombre de 12 chiffres, toujours dans l'ordre de la ligne, sans réordonner les batteries.
+- Pour chaque groupe, on cherche le plus grand nombre de 12 chiffres que l'on peut produire ainsi.
+
+**La réponse attendue.** La somme de ces maxima sur toutes les lignes. Par exemple, pour un groupe de 13 batteries, cela revient à en laisser une seule éteinte : avec `1234567891234`, on éteint le premier `1` et l'on obtient 234567891234.
 
 </details>
 

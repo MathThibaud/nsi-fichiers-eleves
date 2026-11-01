@@ -6,18 +6,28 @@ Première NSI — Chapitre 5 — Spécifier et mettre au point ses programmes.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2018/day/2>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Dans l'entrepôt des elfes, on cherche deux boîtes qui contiennent un tissu précieux. Chaque boîte porte un identifiant fait de lettres minuscules, et le fichier donne la liste de ces identifiants, un par ligne. Avant de chercher les boîtes, on calcule une « somme de contrôle » de la liste, qui sert à vérifier qu'on a bien recopié tous les identifiants.
+**Contexte.** Dans l'entrepôt des elfes, on cherche deux boîtes qui contiennent un tissu précieux. Chaque boîte porte un identifiant. Avant de chercher les boîtes, on calcule une « somme de contrôle » de la liste des identifiants : un nombre qui résume la liste et sert à vérifier qu'on l'a bien recopiée en entier.
 
-**Ce qu'il faut faire.**
+**Les données.** Le fichier contient un identifiant par ligne : un mot fait uniquement de lettres minuscules, sans espace. Tous les identifiants ont la même longueur.
+
+**La règle.**
 - On compte A, le nombre d'identifiants dans lesquels **au moins une** lettre apparaît **exactement deux fois**.
 - On compte B, le nombre d'identifiants dans lesquels au moins une lettre apparaît **exactement trois fois**.
-- Un identifiant compte au plus une fois dans A, même s'il a plusieurs lettres doubles ; il peut en revanche compter à la fois dans A et dans B.
-- Réponse : le produit A × B.
+- « Exactement » compte : une lettre présente quatre fois n'est ni double ni triple.
+- Un identifiant compte au plus une fois dans A, même s'il a plusieurs lettres doubles (et de même pour B) ; il peut en revanche compter à la fois dans A et dans B.
+
+**La réponse attendue.** Le produit A × B. Par exemple, pour les trois identifiants `abcabd`, `xyzxzx` et `klmnop`, on a A = 2 (les deux premiers), B = 1 (le deuxième), et la réponse serait 2.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Il reste à trouver les deux boîtes au tissu précieux : ce sont les deux seules dont les identifiants diffèrent d'**exactement un caractère**, à la même position (toutes les autres positions sont identiques). La réponse est la chaîne des caractères communs, autrement dit l'un des deux identifiants privé du caractère qui diffère.
+**Ce qui change.** On ne calcule plus une somme de contrôle : il faut maintenant trouver les deux boîtes au tissu précieux, en comparant les identifiants entre eux.
+
+**La nouvelle règle.**
+- Les deux boîtes cherchées sont les deux seules dont les identifiants diffèrent d'**exactement un caractère**, à la même position.
+- Toutes les autres positions sont identiques : on compare les caractères position par position, sans décaler les mots.
+
+**La réponse attendue.** La chaîne des caractères communs aux deux identifiants, autrement dit l'un des deux identifiants privé du caractère qui diffère. Par exemple, si les deux identifiants étaient `porte` et `parte`, la réponse serait `prte`.
 
 </details>
 

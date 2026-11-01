@@ -6,20 +6,29 @@ Terminale NSI — Chapitre 2 — Programmation orientée objet et paradigmes.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2020/day/3>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Toujours en route vers l'aéroport, le héros dévale une pente boisée en luge, sans pouvoir vraiment la diriger. Il dispose d'une carte de la forêt vue de dessus : chaque ligne du fichier représente une rangée de la pente, chaque caractère une case, libre ou occupée par un arbre. Il veut savoir combien d'arbres il va percuter en suivant une trajectoire fixée.
+**Contexte.** Toujours en route vers l'aéroport, le héros dévale une pente boisée en luge, sans pouvoir vraiment la diriger. Il dispose d'une carte de la forêt vue de dessus et veut savoir combien d'arbres il va percuter en suivant une trajectoire fixée.
 
-**Ce qu'il faut faire.**
-- Dans la carte, `.` désigne une case libre et `#` un arbre ; toutes les lignes ont la même longueur.
+**Les données.** Le fichier est cette carte. Chaque ligne du fichier représente une rangée de la pente (la première ligne est en haut), et chaque caractère une case : `.` désigne une case libre et `#` un arbre. Toutes les lignes ont la même longueur.
+
+**La règle.**
 - La forêt est bien plus large que la carte : le même motif se répète indéfiniment vers la **droite** (mais pas vers le bas). Autrement dit, après la dernière colonne, on retrouve la première.
-- On part de la case en haut à gauche (ligne 0, colonne 0). À chaque pas, on se déplace de 3 colonnes vers la droite et de 1 ligne vers le bas, et l'on s'arrête quand on dépasse la dernière ligne de la carte.
-- Il faut renvoyer le nombre d'arbres sur les cases atteintes à chaque pas.
+- On part de la case en haut à gauche (ligne 0, colonne 0).
+- À chaque pas, on se déplace de 3 colonnes vers la droite et de 1 ligne vers le bas. Par exemple, sur une carte large de 5 cases, le 2e pas mène à la colonne 6 de la forêt, qui correspond à la colonne 1 de la carte.
+- On regarde la case atteinte à chaque pas ; la case de départ ne compte pas.
+- On s'arrête quand on dépasse la dernière ligne de la carte.
+
+**La réponse attendue.** Le nombre d'arbres sur les cases atteintes. Par exemple, si les cases atteintes contiennent, dans l'ordre, `.`, `#`, `#`, `.`, `#`, la réponse serait 3.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Le héros veut comparer plusieurs trajectoires avant de choisir la moins dangereuse.
-- Refaire le comptage pour cinq pentes : (1 à droite, 1 en bas), (3, 1), (5, 1), (7, 1) et (1 à droite, **2** en bas). Pour cette dernière, on saute donc une ligne sur deux.
-- Il faut renvoyer le **produit** des cinq nombres d'arbres obtenus.
+**Ce qui change.** Le héros veut comparer plusieurs trajectoires avant de choisir la moins dangereuse. La carte et la façon de compter les arbres ne changent pas ; seule la pente (le déplacement à chaque pas) varie.
+
+**La nouvelle règle.**
+- Refaire le comptage pour cinq pentes : (1 à droite, 1 en bas), (3, 1), (5, 1), (7, 1) et (1 à droite, **2** en bas).
+- Pour la dernière pente, on descend de deux lignes à chaque pas : on saute donc une ligne sur deux.
+
+**La réponse attendue.** Le **produit** des cinq nombres d'arbres obtenus. Par exemple, si les cinq pentes rencontraient 2, 3, 1, 4 et 2 arbres, la réponse serait 48.
 
 </details>
 

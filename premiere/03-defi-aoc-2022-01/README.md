@@ -6,17 +6,29 @@ Première NSI — Chapitre 3 — Les types construits.
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2022/day/1>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** Une expédition d'elfes part à pied dans la jungle chercher des fruits magiques. Avant le départ, chaque elfe a noté la valeur énergétique (en calories) de chacun des aliments qu'il emporte. Le fichier rassemble toutes ces notes : chaque nombre est un aliment, et chaque bloc de nombres correspond aux provisions d'un même elfe.
+**Contexte.** Une expédition d'elfes part à pied dans la jungle chercher des fruits magiques. Avant le départ, chaque elfe a noté la valeur énergétique (en calories) de chacun des aliments qu'il emporte dans son sac. Pour prévoir les pauses, on veut savoir quel elfe transporte le plus de calories.
 
-**Ce qu'il faut faire.**
-- Le fichier contient un entier par ligne. Une **ligne vide** marque le passage d'un elfe au suivant ; il n'y en a pas après le dernier elfe.
-- Le total d'un elfe est la somme des nombres de son bloc (un elfe peut n'avoir qu'un seul aliment).
-- On veut savoir quel elfe est le mieux approvisionné : la réponse est le **plus grand total**, c'est-à-dire la valeur de ce total, et non le numéro de l'elfe.
+**Les données.** Le fichier rassemble toutes ces notes. Chaque ligne non vide contient **un seul entier** : les calories d'un aliment. Les aliments d'un même elfe sont écrits les uns sous les autres, en un bloc. Une **ligne vide** sépare le bloc d'un elfe de celui de l'elfe suivant ; il n'y en a pas après le dernier elfe.
+
+**La règle.**
+- On découpe le fichier en blocs, aux lignes vides : chaque bloc correspond à un elfe.
+- Le total d'un elfe est la somme des nombres de son bloc. Un elfe peut n'avoir qu'un seul aliment : son total est alors ce nombre.
+- Le dernier bloc n'est suivi d'aucune ligne vide, mais c'est bien un elfe comme les autres.
+- On cherche le plus grand de tous ces totaux.
+
+**La réponse attendue.** La **valeur** du plus grand total, et non le numéro de l'elfe qui le porte. Par exemple, pour trois elfes portant 100 et 200, puis 500, puis 150, 150 et 150, les totaux sont 300, 500 et 450 : la réponse serait 500.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-On ne veut plus dépendre d'un seul elfe en cas de fringale : on s'intéresse maintenant aux trois elfes les mieux approvisionnés. Le fichier se découpe en elfes exactement comme avant ; la réponse est la **somme des trois plus grands totaux**.
+**Ce qui change.** Compter sur un seul elfe est risqué : s'il a une fringale et mange ses provisions, la réserve disparaît. Pour ne plus dépendre d'un seul elfe, on s'intéresse maintenant aux **trois** elfes les mieux approvisionnés.
+
+**La nouvelle règle.**
+- Le fichier se découpe en elfes exactement comme dans la partie 1, et le total de chaque elfe se calcule de la même façon.
+- On repère les trois plus grands totaux (le plus grand, le deuxième plus grand, le troisième plus grand).
+- On additionne ces trois totaux.
+
+**La réponse attendue.** La **somme des trois plus grands totaux**. Avec les totaux 300, 500, 450 et 200, par exemple, on garderait 500, 450 et 300 : la réponse serait 1250.
 
 </details>
 

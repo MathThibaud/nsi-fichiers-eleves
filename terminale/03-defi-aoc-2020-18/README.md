@@ -6,18 +6,29 @@ Terminale NSI — Chapitre 3 — Structures linéaires : piles, files, listes ch
 
 Énoncé complet (en anglais) : <https://adventofcode.com/2020/day/18>. Ce résumé, écrit pour le manuel, ne remplace pas sa lecture.
 
-**Contexte.** En 2020, les elfes vous ont laissé partir en vacances sous les tropiques. Pendant un vol, un enfant assis à côté de vous vous demande de l'aide pour ses devoirs de calcul... mais dans son école, les règles de priorité ne sont pas celles que vous connaissez. Chaque ligne du fichier est un calcul de son cahier.
+**Contexte.** En 2020, les elfes vous ont laissé partir en vacances sous les tropiques. Pendant un vol, un enfant assis à côté de vous vous demande de l'aide pour ses devoirs de calcul... mais dans son école, les règles de priorité ne sont pas celles que vous connaissez. Il faut donc refaire tous ses calculs avec les règles de son école.
 
-**Ce qu'il faut faire.**
-- Une expression contient des entiers positifs (d'un seul chiffre dans les données), les opérateurs `+` et `*`, et des parenthèses ; les symboles sont séparés par des espaces.
-- Les parenthèses gardent leur rôle : leur contenu se calcule d'abord, et elles peuvent être imbriquées.
-- En revanche, `*` n'est **pas** prioritaire sur `+` : en dehors des parenthèses, on effectue les opérations dans l'ordre où on les lit, de gauche à droite. Autrement dit, `2 + 3 * 4` se calcule comme `(2 + 3) * 4`.
-- Réponse : la somme des valeurs de toutes les lignes.
+**Les données.** Chaque ligne du fichier est une expression du cahier. Elle contient des entiers positifs (d'un seul chiffre dans les données), les opérateurs `+` (addition) et `*` (multiplication), et des parenthèses, éventuellement imbriquées. Les nombres et les opérateurs sont séparés par des espaces ; une parenthèse est collée au nombre qui la suit ou la précède, comme dans `(2 + 4)`.
+
+**La règle.**
+- Les parenthèses gardent leur rôle : leur contenu se calcule d'abord, en commençant par les plus intérieures.
+- En revanche, `*` n'est **pas** prioritaire sur `+` : les deux opérateurs ont la même priorité.
+- En dehors des parenthèses, on effectue donc les opérations dans l'ordre où on les lit, de gauche à droite. Autrement dit, `2 + 3 * 4` se calcule comme `(2 + 3) * 4`.
+
+**La réponse attendue.** La somme des valeurs de toutes les lignes. Par exemple, un fichier de deux lignes `1 + 2 * 3` (qui vaut 3 × 3 = 9) et `2 * (1 + 1)` (qui vaut 4) donnerait 13.
 
 <details>
 <summary><b>Partie 2</b> (à ouvrir après avoir réussi la partie 1)</summary>
 
-Vous avez mal compris : dans cette école, il existe bien une priorité, mais à l'envers de la vôtre. L'**addition est prioritaire** sur la multiplication. Les parenthèses passent toujours en premier ; à priorité égale, on calcule de gauche à droite. Ainsi `2 * 3 + 4` vaut maintenant 2 × 7 = 14. Réponse : la somme des valeurs des lignes.
+**Ce qui change.** Vous aviez mal compris : dans cette école, il existe bien une priorité entre les opérations, mais elle est à l'envers de la vôtre.
+
+**La nouvelle règle.**
+- Les parenthèses passent toujours en premier.
+- Ensuite, l'**addition est prioritaire** sur la multiplication : on effectue toutes les additions avant les multiplications.
+- À priorité égale, on calcule de gauche à droite.
+- Ainsi `2 * 3 + 4` vaut maintenant 2 × 7 = 14, alors qu'il valait 10 en partie 1.
+
+**La réponse attendue.** La somme des valeurs de toutes les lignes, calculées avec cette nouvelle règle.
 
 </details>
 
