@@ -9,7 +9,7 @@ import random
 # Exercice 1 : la fonction partition
 # ---------------------------------------------------------------------------
 def partition(tab, bas, haut):
-    """Partitionne tab[bas..haut] autour du pivot tab[haut].
+    """Partitionne les elements de tab d'indices bas a haut (inclus) autour du pivot tab[haut].
     Renvoie l'indice final du pivot."""
     # A COMPLETER
     return None

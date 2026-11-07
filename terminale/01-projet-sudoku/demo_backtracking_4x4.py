@@ -65,7 +65,7 @@ def resoudre_bavard(grille, profondeur=0):
                 return True
             grille[i][j] = 0
             nb_retours += 1
-            print(marge + f"X  j'efface {v} en ({i},{j})   (retour n{nb_retours})")
+            print(marge + f"X  j'efface {v} en ({i},{j})   (retour numero {nb_retours})")
     # aucun chiffre n'a marche ici : impasse, on rend la main a la case precedente
     return False
 

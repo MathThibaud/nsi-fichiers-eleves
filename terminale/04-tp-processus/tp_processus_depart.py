@@ -3,7 +3,7 @@ TP Processus --- fichier de depart (partie B : simulateur d'ordonnancement).
 
 Un processus est un triplet (nom, arrivee, duree), par exemple ("A", 0, 4).
 Un CHRONOGRAMME est une liste : la case d'indice t contient le nom du
-processus elu pendant l'unite de temps [t, t+1], ou "." si le processeur
+processus elu pendant l'unite de temps [t, t+1[, ou "." si le processeur
 ne fait rien (aucun processus pret).
 
     Exemple (premier arrive, premier servi sur le jeu du cours) :

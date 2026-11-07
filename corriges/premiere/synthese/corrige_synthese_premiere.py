@@ -323,7 +323,7 @@ def points_de(films, titres):
     return total
 
 
-def meilleure_soiree(films, duree_max):
+def meilleure_soiree(duree_max, films):
     n = len(films)
     meilleur_choix = []
     meilleurs_points = 0
@@ -450,5 +450,5 @@ g1 = soiree_gloutonne(240, sorted(soiree, key=lambda f: f[2], reverse=True))
 g2 = soiree_gloutonne(240, sorted(soiree, key=lambda f: f[2] / f[1], reverse=True))
 assert g1 == ["Le Dîner raté", "Mission Mistral"] and points_de(soiree, g1) == 17
 assert g2 == ["Les Pirates du lagon", "Mission Mistral", "La Lettre"] and points_de(soiree, g2) == 19
-assert meilleure_soiree(soiree, 240) == (["Les Pirates du lagon", "Coloc en folie", "Mission Mistral"], 20)
+assert meilleure_soiree(240, soiree) == (["Les Pirates du lagon", "Coloc en folie", "Mission Mistral"], 20)
 print("problèmes 6 à 10 : tous les tests passent")

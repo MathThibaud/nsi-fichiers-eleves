@@ -100,7 +100,7 @@ def renommer_chiffres(grille):
     nouveaux = [i for i in range(1, 10)]
     random.shuffle(nouveaux)          # une permutation au hasard
     # A COMPLETER : construire le dictionnaire {1:nouveaux[0], ...}
-    # puis renvoyer la grille avec chaque valeur remplacee
+    # puis renvoyer une NOUVELLE grille dans laquelle chaque valeur est remplacee
     return None
 
 
