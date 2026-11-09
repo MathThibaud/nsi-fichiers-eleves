@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Côté serveur - Livre d'or</title>
+</head>
+<body>
+  <h1>Livre d'or</h1>
+  <!-- TODO bonus : le formulaire (pseudo, texte, bouton), envoye en POST vers /livre/ecrire -->
+
+  <p style="color: red;">{{ erreur }}</p>
+  <!-- fourni : la boucle for de Jinja repete la balise li pour chaque message de la liste -->
+  <ul>
+    {% for m in messages %}
+    <li><strong>{{ m["pseudo"] }}</strong> : {{ m["texte"] }}</li>
+    {% endfor %}
+  </ul>
+  <p><a href="/">Retour à l'accueil</a></p>
+</body>
+</html>
